@@ -11,7 +11,7 @@
   const pct = (v) => (v == null ? "Non calculé" : n(v) + " %");
   const tab = (titre, colonnes, lignes) => ({ titre, colonnes, lignes });
   const fiscPage =
-    "https://fmacfa.github.io/ma-rentabilite-ia/docs/fiscalite.md";
+    "https://github.com/fmacfa/ma-rentabilite-ia/blob/main/docs/fiscalite.md";
   const etiquette = (k, p) => RentaChamps.descriptif(k, p)?.label || k;
   function entree(k, v, p) {
     if (v == null) return "À préciser";
@@ -1001,7 +1001,7 @@
       );
     const sources = [
       "Les calculs utilisent les montants non arrondis. Les montants affichés sont arrondis au centime.",
-      "Formules et exemples : https://fmacfa.github.io/ma-rentabilite-ia/calculs.html",
+      "Formules et exemples : https://github.com/fmacfa/ma-rentabilite-ia/blob/main/CALCULS.md",
     ];
     if (r.annee_regles)
       sources.push(
@@ -1014,21 +1014,38 @@
     return rapport;
   }
   function texte(r) {
+    const cellule = (v) =>
+      String(v).replaceAll("|", "\\|").replaceAll("\n", " ");
+    const rangee = (v) => "| " + v.map(cellule).join(" | ") + " |";
     const lignes = [
-      r.titre,
+      "# " + r.titre,
+      "",
       r.sousTitre,
       "",
-      ...r.indicateurs.map((i) => i.label + " : " + i.valeur),
+      "| Indicateur | Résultat |",
+      "| --- | ---: |",
+      ...r.indicateurs.map((i) => rangee([i.label, i.valeur])),
     ];
     for (const s of r.sections) {
-      lignes.push("", "## " + s.titre, ...s.paragraphes);
+      const long = s.titre === "Échéancier mensuel du prêt";
+      lignes.push("", "## " + s.titre);
+      if (long)
+        lignes.push(
+          "",
+          "<details>",
+          "<summary>Voir toutes les mensualités</summary>",
+        );
+      for (const paragraphe of s.paragraphes) lignes.push("", paragraphe);
       for (const t of s.tables)
         lignes.push(
           "",
-          t.titre,
-          t.colonnes.join(" | "),
-          ...t.lignes.map((l) => l.join(" | ")),
+          "**" + t.titre + "**",
+          "",
+          rangee(t.colonnes),
+          rangee(t.colonnes.map(() => "---")),
+          ...t.lignes.map(rangee),
         );
+      if (long) lignes.push("", "</details>");
     }
     return lignes.join("\n");
   }

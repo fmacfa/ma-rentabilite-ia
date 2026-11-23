@@ -1,7 +1,6 @@
-// Le guide et les exemples sont également disponibles depuis une copie locale du site.
+// Les exemples restent utilisables dans une copie locale de l’outil PDF.
 import { readFile, readdir, writeFile } from "node:fs/promises";
 const racine = new URL("../", import.meta.url);
-const guide = await readFile(new URL("assistant.md", racine), "utf8");
 const exemples = {};
 for (const nom of (await readdir(new URL("exemples/", racine))).sort()) {
   if (nom.endsWith(".json"))
@@ -11,7 +10,7 @@ for (const nom of (await readdir(new URL("exemples/", racine))).sort()) {
 }
 await writeFile(
   new URL("web/contenus.js", racine),
-  "/* Généré depuis assistant.md et exemples/. */\nwindow.RentaContenus = " +
-    JSON.stringify({ guide, exemples }, null, 2) +
+  "/* Généré depuis exemples/*.json. */\nwindow.RentaContenus = " +
+    JSON.stringify({ exemples }, null, 2) +
     ";\n",
 );

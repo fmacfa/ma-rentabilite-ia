@@ -1,7 +1,8 @@
 (() => {
   "use strict";
   const BASE = "https://fmacfa.github.io/ma-rentabilite-ia/";
-  const GUIDE = BASE + "assistant.md";
+  const DEPOT = "https://github.com/fmacfa/ma-rentabilite-ia";
+  const GUIDE = DEPOT + "/blob/main/assistant.md";
   const TITRES = {
     lina: "Le bilan de Lina",
     "location-nue": "Location nue en direct",
@@ -10,8 +11,7 @@
     "sci-is": "Société civile à l’IS",
     jeanbrun: "Location sous Jeanbrun",
   };
-  const home = document.getElementById("accueil"),
-    zone = document.getElementById("dossier");
+  const zone = document.getElementById("dossier");
   let version = 0,
     minuterie;
   const el = (tag, texte, classe) => {
@@ -53,23 +53,6 @@
       area.select();
     }
   }
-  document
-    .getElementById("copier-lien")
-    .addEventListener("click", () =>
-      copier(
-        "Lis ce guide et accompagne-moi pas à pas pour étudier mon investissement locatif. " +
-          GUIDE,
-        "Message et lien copiés. Collez-les dans votre IA.",
-      ),
-    );
-  document
-    .getElementById("copier-guide")
-    .addEventListener("click", () =>
-      copier(
-        RentaContenus.guide,
-        "Guide copié. Collez-le dans votre conversation.",
-      ),
-    );
   document.querySelector(".skip").addEventListener("click", (event) => {
     event.preventDefault();
     document.getElementById("contenu").focus();
@@ -85,7 +68,7 @@
   });
   function entete(titre, sousTitre) {
     zone.replaceChildren(
-      lien("Retour à l’accueil", "index.html", "retour"),
+      lien("Revenir au guide sur GitHub", DEPOT, "retour"),
       el("h1", titre),
     );
     if (sousTitre) zone.append(el("p", sousTitre, "sous-titre"));
@@ -216,7 +199,7 @@
     const intro = el("p", null, "rapport-intro");
     intro.append(
       "Chaque rubrique reprend vos montants et leurs formules. Le PDF inclut toutes les rubriques. ",
-      lien("Consulter toutes les formules", "calculs.html"),
+      lien("Consulter toutes les formules", DEPOT + "/blob/main/CALCULS.md"),
     );
     zone.append(intro);
     for (const s of rapport.sections)
@@ -650,15 +633,10 @@
     const ticket = ++version,
       h = location.hash;
     if (!h || ["#", "#contenu", "#accueil"].includes(h)) {
-      home.hidden = false;
-      zone.hidden = true;
-      zone.replaceChildren();
-      document.title =
-        "Ma Rentabilité — Étudier son projet locatif avec son IA";
+      if (location.protocol === "file:") location.replace("#saisie");
+      else location.replace(DEPOT + "#readme");
       return;
     }
-    home.hidden = true;
-    zone.hidden = false;
     zone.removeAttribute("aria-busy");
     if (h === "#saisie") {
       ouvrirEdition(neuf());
@@ -707,7 +685,7 @@
         zone.append(
           lien("Commencer un projet", "#saisie", "btn"),
           document.createTextNode(" "),
-          lien("Ouvrir le guide pour mon IA", "assistant.md", "btn"),
+          lien("Ouvrir le guide pour mon IA", GUIDE, "btn"),
         );
       }
     } finally {

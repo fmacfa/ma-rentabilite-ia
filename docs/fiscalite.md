@@ -12,7 +12,7 @@
 | SCI à l’IS | IS de la société puis fiscalité du dividende | Éligibilité au taux réduit, valeur amortissable, distribution décidée, valeur nette comptable à la cession |
 | Location nue sous Jeanbrun | Réel foncier ordinaire et déduction Jeanbrun | Date de l’opération, éligibilité du bien et du locataire, loyer plafonné, plafond disponible du foyer, durée de détention |
 
-La commande `comparer` chiffre l’année 1 à conditions économiques constantes. Le montant de l’impôt à la revente, les coûts de la comptabilité, la durée de l’option et le loyer accessible dans chaque mode peuvent changer le choix sur dix ans. Comparez alors deux dossiers complets.
+La comparaison des régimes chiffre l’année 1 à conditions économiques constantes. Le montant de l’impôt à la revente, les coûts de la comptabilité, la durée de l’option et le loyer accessible dans chaque mode peuvent changer le choix sur dix ans. Comparez alors deux dossiers complets.
 
 ## Location nue
 
@@ -48,7 +48,7 @@ Une distribution effectivement prévue figure séparément avec un PFU indicatif
 
 Le dispositif adopté vise notamment des logements collectifs neufs et certains logements anciens réhabilités, pour des opérations éligibles entre le **21 février 2026 et le 31 décembre 2028**. Il impose une location nue à titre de résidence principale avec un engagement de neuf ans. Pour l’ancien, vérifier la voie juridique des travaux, notamment le seuil de 30 % et les critères de réhabilitation lourde lorsqu’ils s’appliquent. Contrôler aussi le calendrier, les ressources et le lien du locataire, le loyer, la zone et les conditions de détention. Le simulateur de Service Public et les plafonds locaux permettent cette vérification. [Service Public, éligibilité et plafonds Jeanbrun](https://www.service-public.gouv.fr/particuliers/vosdroits/F39735)
 
-L’amortissement s’applique à l’assiette éligible, terrain exclu forfaitairement à 20 %. Les taux intermédiaire, social et très social sont de **3,5 / 4,5 / 5,5 %** en neuf et **3 / 3,5 / 4 %** en ancien éligible. Le plafond annuel de 8 000 € par foyer peut être majoré sous conditions portant sur la composition des revenus locatifs du foyer. Saisissez la part réellement disponible et le nombre de mois du premier exercice. La durée de l’engagement, les reprises et les amortissements à réintégrer à la cession peuvent modifier le résultat. Les projets d’amendement conservés dans les articles historiques sont repérés comme tels. [CGI, article 31, I-1° i et j](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761/2026-06-07) · [Service Public, calcul de la déduction](https://www.service-public.gouv.fr/particuliers/vosdroits/F39735)
+L’amortissement s’applique à l’assiette éligible, terrain exclu forfaitairement à 20 %. Les taux intermédiaire, social et très social sont de **3,5 / 4,5 / 5,5 %** en neuf et **3 / 3,5 / 4 %** en ancien éligible. Le plafond annuel de 8 000 € par foyer peut être majoré sous conditions portant sur la composition des revenus locatifs du foyer. Saisissez la part réellement disponible et le nombre de mois du premier exercice. La durée de l’engagement, les reprises et les amortissements à réintégrer à la cession peuvent modifier le résultat. Les projets d’amendement conservés dans les articles historiques sont repérés comme tels. [Loi de finances pour 2026, article 47](https://www.legifrance.gouv.fr/eli/loi/2026/2/19/CPPX2524517L/jo/article_47) · [Service Public, calcul de la déduction](https://www.service-public.gouv.fr/particuliers/vosdroits/F39735)
 
 ## Revente par un particulier
 
