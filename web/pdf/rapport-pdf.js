@@ -6,8 +6,14 @@
   const marge = 36;
   const largeurUtile = 595.28 - 2 * marge; // A4 en points
   const couleur = {
-    encre: "#142E32", accent: "#126253", secondaire: "#455C60",
-    ligne: "#CCDBD6", fond: "#EAF4F0", alternance: "#F7FAF9"
+    encre: "#153359",
+    accent: "#235A96",
+    secondaire: "#445B75",
+    ligne: "#C6D7E9",
+    fond: "#E8F1FA",
+    alternance: "#F5F8FC",
+    libelleSurEncre: "#E1EEFA",
+    valeurSurEncre: "#BCDFFF"
   };
   let preparation;
 
@@ -62,11 +68,11 @@
     const lignes = [];
     for (let debut = 0; debut < items.length; debut += colonnes) {
       const rang = items.slice(debut, debut + colonnes).map(ind => ({
-        fillColor: couleur.fond,
+        fillColor: couleur.encre,
         margin: [9, 6, 9, 6],
         stack: [
-          { text: texte(ind.label), fontSize: 9, color: couleur.secondaire, margin: [0, 0, 0, 3] },
-          { text: texte(ind.valeur), bold: true, color: couleur.accent, fontSize: 15 }
+          { text: texte(ind.label), fontSize: 9, color: couleur.libelleSurEncre, margin: [0, 0, 0, 3] },
+          { text: texte(ind.valeur), bold: true, color: couleur.valeurSurEncre, fontSize: 15 }
         ]
       }));
       while (rang.length < colonnes) rang.push({ text: "", fillColor: "white" });
