@@ -1,35 +1,50 @@
 # Ma Rentabilité IA
 
-**Le loyer couvrira-t-il le crédit, les charges et l’impôt ?** Donnez le lien de ce dépôt à votre IA et parlez-lui du bien que vous envisagez. Elle vous aide à retrouver les chiffres manquants, compare vos options et vous rend un bilan que vous pouvez vérifier.
+![Une clé devant la façade et l’intérieur d’un appartement français, en vert sapin et ocre.](docs/images/couverture-locative.webp)
 
-[Voir un bilan en PDF](exemples/bilan-lina.pdf) · [Comprendre tous les calculs](CALCULS.md) · [Consulter les fiches vérifiées](articles/README.md)
+**Après le crédit, les charges et l’impôt, que restera-t-il du loyer ?** Partez d’une annonce en France et des chiffres que vous connaissez. Votre IA vous aide à compléter le budget, à comparer vos options et à garder un bilan détaillé en PDF.
+
+[Exemple de bilan en PDF](exemples/bilan-lina.pdf) · [Tous les calculs](CALCULS.md) · [Sources vérifiées](articles/README.md)
 
 ## Commencer avec mon IA
 
-Copiez ce message dans ChatGPT, Claude, Codex ou votre assistant habituel. Vous pouvez déjà y ajouter le prix, le loyer ou votre première question.
+Envoyez [le lien de ce guide](https://github.com/fmacfa/ma-rentabilite-ia) à **ChatGPT, Claude, Codex** ou votre IA habituelle. Vous pouvez copier le message ci-dessous, puis ajouter le prix et le loyer du bien.
 
 ```text
-Lis https://github.com/fmacfa/ma-rentabilite-ia et accompagne-moi pour étudier mon projet locatif.
-Pose-moi les questions au fur et à mesure. À la fin, montre les calculs avec mes chiffres et donne-moi le bilan en PDF.
+Étudie mon projet avec moi.
+https://github.com/fmacfa/ma-rentabilite-ia
+
+Pose-moi les questions utiles.
+Détaille tous mes calculs
+et donne-moi le bilan en PDF.
 ```
 
-1. **Dites ce que vous voulez décider.** Par exemple, « Puis-je financer ce logement avec 250 € par mois de ma poche ? » L’IA part de ce que vous connaissez et vous aide à trouver le reste dans l’annonce, le devis ou l’offre de prêt.
-2. **Essayez une autre hypothèse.** Que se passe-t-il avec un loyer plus bas, deux mois de travaux ou un autre régime fiscal ? Demandez l’écart en euros et la source de la règle appliquée.
-3. **Gardez le détail.** Vous recevez dans la conversation les hypothèses, les opérations et les résultats année par année. Votre IA peut joindre le PDF ou vous donner un lien personnel pour le télécharger.
+1. **Décrivez le bien.** L’IA part de vos chiffres et vous indique où trouver ceux qui manquent, par exemple l’assurance sur l’offre de prêt.
+2. **Testez ce qui vous fait hésiter.** « Et si je louais 100 € moins cher ? » ou « Quels régimes fiscaux puis-je comparer ? » Demandez l’écart en euros et la source de la règle.
+3. **Repartez avec votre bilan.** Retrouvez les hypothèses, les opérations et les résultats année par année dans la conversation. L’IA peut joindre le PDF ou vous donner un lien pour le télécharger.
 
-C’est votre première conversation sur le projet ? Le guide d’accompagnement se lit directement sur GitHub. Si votre assistant ne peut pas ouvrir le dépôt, collez le texte de ce guide dans le chat. [Lire le guide](assistant.md) · [Copier sa version texte](https://raw.githubusercontent.com/fmacfa/ma-rentabilite-ia/main/assistant.md)
+<details>
+<summary>Mon IA ne peut pas ouvrir le lien GitHub</summary>
+
+Copiez le texte du guide d’accompagnement dans votre conversation ou joignez-le comme fichier, puis décrivez votre projet. [Ouvrir le guide en texte brut](https://raw.githubusercontent.com/fmacfa/ma-rentabilite-ia/main/assistant.md) · [Le lire sur GitHub](assistant.md)
+
+</details>
 
 ## Exemple · Le projet de Lina
 
-> **Lina** — J’ai trouvé un appartement à 140 000 €. Je pense le louer meublé 1 050 € par mois. Combien dois-je prévoir de ma poche ?
+> **Lina** — « J’ai trouvé un appartement à 140 000 € que je pourrais louer meublé 1 050 € par mois. Combien devrai-je sortir de ma poche ? »
 >
-> **L’IA** — Commençons par le crédit et le premier loyer. Quelle mensualité, assurance comprise, figure sur votre offre ? Combien de mois de travaux prévoyez-vous avant de louer ?
->
-> **Lina** — Environ 871 € par mois de crédit et deux mois de travaux. Ensuite, je voudrais tester 5 % de vacance.
+> **Son IA** — « Quelle mensualité, assurance comprise, figure sur l’offre de prêt ? Et combien de mois s’écouleront avant le premier loyer ? »
 
-![Budget mensuel moyen de Lina la première année. Elle encaisse 831,25 € et débourse 1 219,27 €, soit 388,02 € d’épargne à apporter.](docs/images/budget-lina.png)
+Dans cet exemple fictif, Lina rembourse **870,94 € par mois**. Elle prévoit deux mois de travaux, puis 5 % de vacance locative. Elle compte **2 980 € de charges** et retient **1 200 € d’impôt** pour la première année.
 
-Avec **2 980 € de charges annuelles** et une **hypothèse de 1 200 € d’impôt**, Lina doit apporter **388,02 € par mois en moyenne la première année**, en plus des **28 300 €** engagés à l’achat. Si le loyer baisse de 10 %, l’effort passe à **471,15 € par mois**.
+[![Budget de Lina en première année. En moyenne chaque mois, 831,25 € encaissés et 1 219,27 € déboursés, soit 388,02 € à apporter. Ouvrir le bilan détaillé.](docs/images/budget-lina.png)](exemples/lina.md)
+
+Lina engage **28 300 € à l’achat**, puis apporte **388,02 € par mois en moyenne** la première année. Pendant les travaux, la mensualité du prêt est déjà due et aucun loyer ne rentre.
+
+**Et si le loyer baisse de 10 % ?** À 945 € de loyer, l’effort passe à **471,15 € par mois**. Si Lina s’était fixé une enveloppe de 400 €, il lui manquerait alors **71,15 € par mois en moyenne**.
+
+**[Ouvrir le bilan de Lina en PDF · 11 pages](exemples/bilan-lina.pdf)** · [Lire les calculs sur GitHub](exemples/lina.md)
 
 <details>
 <summary>Refaire le calcul de Lina en quatre lignes</summary>
@@ -39,26 +54,26 @@ Avec **2 980 € de charges annuelles** et une **hypothèse de 1 200 € d’imp
 | Loyers encaissés | 1 050 € × 10 mois ouverts × 95 % | 9 975,00 € |
 | Revenu après charges | 9 975 € − 2 980 € | 6 995,00 € |
 | Trésorerie après crédit et impôt | 6 995 € − 10 451,30 € − 1 200 € | −4 656,30 € |
-| Effort d’épargne mensuel moyen | 4 656,30 € / 12 | **388,02 €** |
+| Effort d’épargne mensuel moyen | Déficit annuel avant arrondi / 12 | **388,02 €** |
 
-Les montants sont arrondis à l’affichage. L’effort annuel avant arrondi est de 4 656,2991 €, soit 388,0249 € par mois. Le bilan donne les 240 échéances du prêt et suit le projet jusqu’à la revente en année 10.
+Avant arrondi, l’effort annuel est de 4 656,2991 €, soit 388,0249 € par mois. Le bilan complet donne les 240 échéances du prêt et suit le projet jusqu’à la revente en année 10.
 
 </details>
 
-**[Lire le bilan détaillé de Lina](exemples/lina.md)** · **[Ouvrir son PDF](exemples/bilan-lina.pdf)**
+## Quel exemple ressemble à votre projet ?
 
-## Explorer une situation proche de la mienne
-
-| Votre question | Exemple chiffré |
+| Projet | Question étudiée dans le bilan |
 | --- | --- |
-| Quel impôt avec le micro-foncier ou le réel ? | [Location nue](exemples/location-nue.md) |
-| Que changent les amortissements de mon meublé ? | [Meublé de longue durée](exemples/location-meublee.md) |
-| Combien rapporte un logement loué à la nuit ? | [Meublé de tourisme](exemples/tourisme.md) |
-| Quelle somme arrive réellement chez l’associé ? | [SCI à l’IS et dividendes](exemples/sci-is.md) |
-| Quel effet aurait la déduction Jeanbrun sur mes revenus ? | [Location nue sous Jeanbrun](exemples/jeanbrun.md) |
+| [Location nue](exemples/location-nue.md) | Avec 1 000 € de loyer par mois, quel impôt au micro-foncier et au réel ? |
+| [Meublé de longue durée](exemples/location-meublee.md) | Pourquoi le même logement donne-t-il −114,49 € par mois au micro et +46,17 € au réel ? |
+| [Meublé de tourisme](exemples/tourisme.md) | À 85 € la nuit et 45 % d’occupation, combien reste-t-il sur un an ? |
+| [SCI à l’IS](exemples/sci-is.md) | Sur 2 000 € de dividendes distribués, combien l’associé reçoit-il ? |
+| [Location sous Jeanbrun](exemples/jeanbrun.md) | Quelle déduction retenir si le logement est loué dix mois la première année ? |
 
-## Retrouver une formule ou une source
+## Vérifier un chiffre
 
-Les **formules** expliquent comment passer des loyers à la trésorerie, puis de la revente au rendement sur dix ans. Les **fiches vérifiées** indiquent quel chiffre utiliser et dans quelles conditions. Les règles fiscales du projet portent sur les revenus **2026**. Chaque fiche précise sa date de vérification et renvoie aux sources qui permettent de la contrôler. [Tous les calculs](CALCULS.md) · [Fiches et sources](articles/README.md) · [Guide pratique de ma-rentabilite.fr](guide/README.md)
+- **[Tous les calculs](CALCULS.md)** pour refaire une mensualité, retrouver un rendement ou suivre les flux jusqu’à la revente.
+- **[Les 11 fiches vérifiées](articles/README.md)** pour choisir le bon montant et retrouver la source officielle. Les règles fiscales portent sur les revenus 2026.
+- **[Le guide pratique](guide/README.md)** pour approfondir un sujet ou préparer une visite.
 
-Vos chiffres se partagent dans votre conversation privée. Si vous transmettez le lien de votre bilan, son destinataire pourra en lire les montants.
+Le lien personnel de votre bilan contient les chiffres du projet. Toute personne à qui vous le transmettez pourra les lire.
