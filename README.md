@@ -1,6 +1,6 @@
 # Ma Rentabilité IA
 
-![Une clé devant la façade et l’intérieur d’un appartement français, en vert sapin et ocre.](docs/images/couverture-locative.webp)
+![Une main tient une clé devant la fenêtre ouverte d’un appartement français, en linogravure bleu encre.](docs/images/couverture-locative.webp)
 
 **Après le crédit, les charges et l’impôt, que restera-t-il du loyer ?** Partez d’une annonce en France et des chiffres que vous connaissez. Votre IA vous aide à compléter le budget, à comparer vos options et à garder un bilan détaillé en PDF.
 
