@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": 180000, "frais_acte": 14200},
+  "credit": {"capital": 0},
+  "location": {"type": "nue", "loyer_mensuel_hc": 960, "vacance_pct": 4},
+  "charges_annuelles": {"taxe_fonciere": 1000, "assurance_et_gestion_comptable": 1100},
+  "fiscalite": {"regime": "sci_is", "annee_reference": 2026, "detention": "sci_is", "conditions_confirmees": true, "charges_deductibles_annuelles": 2100, "amortissement_annuel": 3800, "base_amortissable": 145000, "taux_reduit_is": true, "dividendes_bruts_annuels": 2000},
+  "projection": {"annees": 5},
+  "hypotheses": ["SCI française fictive remplissant les conditions du taux réduit. Distribution annuelle hypothétique finançable et couverte par un bénéfice distribuable."]
+}

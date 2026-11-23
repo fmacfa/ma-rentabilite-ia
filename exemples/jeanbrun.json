@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": 220000, "frais_acte": 5500},
+  "credit": {"capital": 0},
+  "location": {"type": "nue", "loyer_mensuel_hc": 780, "vacance_pct": 0, "delai_mois": 2},
+  "charges_annuelles": {"copropriete": 850, "taxe_et_assurance": 1200},
+  "fiscalite": {"regime": "jeanbrun", "annee_reference": 2026, "detention": "direct", "conditions_confirmees": true, "micro_compatible": false, "autres_recettes": 0, "tmi_pct": 30, "charges_deductibles_annuelles": 2050, "type_jeanbrun": "neuf", "niveau_jeanbrun": "intermediaire", "base_jeanbrun": 176000, "plafond_jeanbrun": 8000, "mois_jeanbrun_an1": 10},
+  "projection": {"annees": 10},
+  "hypotheses": ["Exemple fictif de logement collectif neuf acquis en mars 2026, loyer intermédiaire et ressources du locataire supposés conformes, engagement de neuf ans. Le budget de l’année initiale retient dix mois de recettes et les charges annuelles indiquées.", "Assiette vérifiée dans ce scénario : 220 000 € × 80 %. Aucun autre amortissement Jeanbrun dans le foyer."]
+}

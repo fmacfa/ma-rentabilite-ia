@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": 155000, "mode_acte": "ancien_estime", "mobilier": 7000},
+  "credit": {"capital": 0},
+  "location": {"type": "tourisme_non_classe", "prix_nuit": 85, "occupation_pct": 45, "gestion_pct": 18},
+  "charges_annuelles": {"charges_et_assurance": 2100, "entretien": 1200},
+  "fiscalite": {"regime": "micro_bic", "annee_reference": 2026, "detention": "direct", "conditions_confirmees": true, "micro_compatible": true, "tmi_pct": 11, "autres_recettes": 0, "recettes_n1": 13000, "recettes_n2": 12800, "charges_deductibles_annuelles": 3300, "base_amortissable": 120000, "amortissement_annuel": 3250},
+  "projection": {"annees": 3},
+  "hypotheses": ["Exemple fictif d’activité individuelle homogène déjà exercée. Autorisation de courte durée supposée vérifiée dans la commune. Frais d’acte provisionnels."]
+}

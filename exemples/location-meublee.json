@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": 130000, "frais_acte": 10000, "mobilier": 5500},
+  "credit": {"capital": 100000, "taux_pct": 3.2, "duree_mois": 216, "differe_mois": 3, "type_differe": "interets_seuls", "mode_assurance": "capital_restant_du", "assurance": 0.3},
+  "location": {"type": "meublee_longue", "loyer_mensuel_hc": 850, "vacance_pct": 4, "charges_refacturees_annuelles": 600},
+  "charges_annuelles": {"taxe_fonciere": 900, "comptabilite": 450, "assurance": 150, "entretien": 500},
+  "fiscalite": {"regime": "lmnp_reel", "annee_reference": 2026, "detention": "direct", "conditions_confirmees": true, "micro_compatible": true, "tmi_pct": 30, "autres_recettes": 0, "recettes_n1": 0, "recettes_n2": 0, "charges_deductibles_annuelles": 2000, "amortissement_annuel": 3100, "base_amortissable": 108000},
+  "projection": {"annees": 7},
+  "hypotheses": ["Exemple fictif de création individuelle au 1er janvier. Loueur non professionnel relevant des prélèvements sur le patrimoine.", "Les 600 € refacturés sont compensés par 600 € de dépenses récupérables. Dotation illustrative hors terrain à confirmer sur un plan comptable."]
+}

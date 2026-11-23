@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": 150000, "frais_acte": 11500, "travaux": 4500},
+  "credit": {"capital": 120000, "taux_pct": 3.4, "duree_mois": 240, "mode_assurance": "capital_initial", "assurance": 0.25, "garantie": 1000, "dossier": 500},
+  "location": {"type": "nue", "loyer_mensuel_hc": 1000, "vacance_pct": 5, "gestion_pct": 6},
+  "charges_annuelles": {"taxe_fonciere_hors_teom": 1100, "copropriete_non_recuperable": 700, "assurance": 200, "reserve_travaux": 400},
+  "fiscalite": {"regime": "foncier_reel", "annee_reference": 2026, "detention": "direct", "conditions_confirmees": true, "micro_compatible": true, "tmi_pct": 30, "autres_recettes": 0, "charges_deductibles_annuelles": 2000},
+  "projection": {"annees": 5},
+  "hypotheses": ["Exemple fictif en France. Aucun autre revenu foncier, aucune option ni exclusion du micro. La réserve de 400 € est un budget de précaution."]
+}

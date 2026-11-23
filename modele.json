@@ -1,0 +1,9 @@
+{
+  "achat": {"prix": null, "frais_acte": null, "agence_en_plus": null, "travaux": null, "mobilier": null},
+  "credit": {"capital": null},
+  "location": {"type": null},
+  "charges_annuelles": null,
+  "fiscalite": {"regime": null},
+  "projection": {"annees": null},
+  "hypotheses": []
+}

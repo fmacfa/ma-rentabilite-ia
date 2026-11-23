@@ -1,0 +1,15 @@
+/mes-projets/
+/resultats/
+*.json
+!/modele.json
+!/exemples/*.json
+.env
+.env.*
+*.sql
+*.sqlite*
+*.pdf
+*.xlsx
+*.csv
+__pycache__/
+.venv/
+.DS_Store

@@ -1,0 +1,10 @@
+{
+  "achat": {"prix": 140000, "frais_acte": 11200, "travaux": 14000, "mobilier": 4000, "autres": 1800},
+  "credit": {"capital": 145000, "taux_pct": 3.5, "duree_mois": 240, "mode_assurance": "montant_annuel", "assurance": 360, "garantie": 1500, "dossier": 800},
+  "location": {"type": "meublee_longue", "loyer_mensuel_hc": 1050, "vacance_pct": 5, "delai_mois": 2},
+  "charges_annuelles": {"taxe_fonciere_nette": 1200, "copropriete": 900, "assurance_pno": 180, "entretien_et_renouvellement": 700},
+  "fiscalite": {"regime": "montant_connu", "impot_annuel": 1200, "evolution_impot_connu": "proportionnel_net"},
+  "projection": {"annees": 10, "actualisation_pct": 5, "index_loyers_pct": 1.5, "index_charges_pct": 2},
+  "revente": {"prix": 190000, "frais": 9500, "indemnite": 0, "impot": 5000},
+  "hypotheses": ["Exemple fictif de Lina, guide de juillet 2026. L’impôt initial et l’impôt de cession sont des hypothèses chiffrées du livre.", "Hypothèses reconstituées à partir du tableau de sortie : loyers +1,5 %/an, charges +2 %/an ; à compter de l’année 2, impôt proportionnel au résultat net d’exploitation. Elles reproduisent les indicateurs du guide."]
+}
