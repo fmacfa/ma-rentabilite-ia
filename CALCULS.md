@@ -10,6 +10,7 @@ Combien faut-il apporter à l’achat, que reste-t-il chaque mois et que récup�
 - [Crédit et assurance](#crédit-et-assurance)
 - [Loyers et charges](#loyers-et-charges)
 - [Rendements et trésorerie](#rendements-et-trésorerie)
+- [Loyer minimum pour un budget mensuel](#loyer-minimum-pour-un-budget-mensuel)
 - [Fiscalité des loyers](#fiscalité-des-loyers)
 - [Revente et plus-value](#revente-et-plus-value)
 - [VAN, TRI et fonds propres](#van-tri-et-fonds-propres)
@@ -156,6 +157,28 @@ Chaque variante modifie une seule donnée. Pour un prix de départ de 140 000 
 | Loyer −20 % | 3,86 % | 554,27 € |
 
 À prix réduit de 10 %, les frais d’acte saisis en euros et l’impôt supposé de Lina gardent leur montant. Son apport descend à 14 300 € et son rendement devient 8 990 / 157 000 = 5,73 %. Une variante peut sortir du périmètre, par exemple si le crédit saisi dépasse le nouveau coût du projet. On peut alors modifier le financement pour étudier cette autre hypothèse.
+
+### Loyer minimum pour un budget mensuel
+
+**Objectif.** Trouver le plus petit loyer mensuel hors charges qui laisse une trésorerie d’au moins **−12 × l’effort mensuel accepté** sur la première année. Un budget de 0 € cherche l’équilibre. Le résultat est une moyenne annuelle. Les échéances restent dues les mois où le bien est vide.
+
+En longue durée, avec un impôt annuel fixé ou un calcul avant impôt, on peut isoler directement le loyer. Les annexes sont comptées sur les mois ouverts. Les dépenses du bailleur et les échéances d’emprunt sont celles de l’année entière.
+
+```text
+besoin annuel = dépenses du bailleur + échéances assurance comprise + impôt retenu
+                − recettes annexes encaissées − 12 × effort mensuel accepté
+mois effectivement loués = mois ouverts × (1 − taux de vacance)
+loyer HC minimum = maximum(0, besoin annuel)
+                   ÷ [mois effectivement loués × (1 − taux de gestion)]
+```
+
+Pour Lina, cela donne **(2 980 + 10 451,2991 + 1 200 − 12 × 400) ÷ (10 × 0,95) = 1 034,8736 €**. Arrondir **au centime supérieur** donne **1 034,88 € HC**. À 1 034,87 €, l’effort vaut encore 400,00284 € par mois. Le loyer annoncé de 1 050 € laisse une marge de **15,12 € de loyer**, soit **11,98 € sur le budget mensuel moyen**. [Ouvrir le calcul et télécharger son PDF](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=lina&effort=400)
+
+En tourisme, remplacez les mois effectivement loués par **365 × mois ouverts / 12 × taux d’occupation** pour obtenir le prix par nuit. Si le régime calcule l’impôt, le moteur recalcule la base, les frais de gestion et l’impôt à chaque tarif essayé. Il vérifie le centime inférieur et signale un seuil fiscal ou une information manquante. Avec une gestion très coûteuse au micro, il peut demander de tester des loyers précis. Avec zéro nuit louée ou douze mois de travaux, seul le budget couvert sans loyer peut être atteint. Vérifiez ensuite la demande locale et les plafonds du bail avant de retenir le prix.
+
+### Comparer deux biens
+
+Alignez l’année des revenus, l’horizon de vente et la convention de trésorerie. Gardez pour chaque bien son prix, sa date de mise en location et son propre financement. Le comparatif présente l’apport initial, la trésorerie moyenne sur douze mois, puis le **produit net de vente = prix − frais − dette restante − indemnité − impôt de cession**. Le TRI tient aussi compte des apports et des flux de chaque année. [Lire le comparatif chiffré et ses deux annexes](exemples/deux-biens.md)
 
 ## Fiscalité des loyers
 

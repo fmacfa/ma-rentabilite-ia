@@ -107,6 +107,13 @@ class PariteNavigateur(unittest.TestCase):
                         "frais_cession_deductibles":4000, "amortissements_a_reintegrer":0}
         self.verifier(p)
 
+    def test_objectif_budget_et_loyer_inconnu(self):
+        p = deepcopy(self.exemples["lina"])
+        p["projection"]["effort_max_mensuel"] = 400
+        self.verifier(p)
+        p["location"]["loyer_mensuel_hc"] = None
+        self.verifier(p)
+
 
 if __name__ == "__main__":
     unittest.main()

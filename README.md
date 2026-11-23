@@ -4,7 +4,7 @@
 
 **Après le crédit, les charges et l’impôt, que restera-t-il du loyer ?** Partez d’une annonce en France et des chiffres que vous connaissez. Votre IA vous aide à compléter le budget, à comparer vos options et à garder un bilan détaillé en PDF.
 
-[Exemple de bilan en PDF](exemples/bilan-lina.pdf) · [Tous les calculs](CALCULS.md) · [Sources vérifiées](articles/README.md)
+[Exemple de bilan en PDF](exemples/bilan-lina.pdf) · [Tous les calculs](CALCULS.md) · [Sources vérifiées](articles/README.md) · [Pour les professionnels](#présenter-un-bilan-à-un-client)
 
 ## Commencer avec mon IA
 
@@ -18,6 +18,8 @@ Pose-moi les questions utiles.
 Détaille tous mes calculs
 et donne-moi le bilan en PDF.
 ```
+
+**Envie d’essayer avant d’avoir trouvé un bien ?** Copiez l’annonce du deux-pièces à 150 000 €. Avec trois chiffres, votre IA peut déjà distinguer le loyer qui vous revient des provisions pour charges. [Essayer avec l’annonce fictive](exemples/annonce-a-copier.md)
 
 1. **Décrivez le bien.** L’IA part de vos chiffres et vous indique où trouver ceux qui manquent, par exemple l’assurance sur l’offre de prêt.
 2. **Testez ce qui vous fait hésiter.** « Et si je louais 100 € moins cher ? » ou « Quels régimes fiscaux puis-je comparer ? » Demandez l’écart en euros et la source de la règle.
@@ -44,6 +46,8 @@ Lina engage **28 300 € à l’achat**, puis apporte **388,02 € par mois en m
 
 **Et si le loyer baisse de 10 % ?** À 945 € de loyer, l’effort passe à **471,15 € par mois**. Si Lina s’était fixé une enveloppe de 400 €, il lui manquerait alors **71,15 € par mois en moyenne**.
 
+**« Je peux mettre 400 € par mois. Quel loyer me faut-il ? »** Avec son emprunt, ses deux mois de travaux et son hypothèse d’impôt, Lina doit louer au moins **1 034,88 € hors charges**. Il lui reste 15,12 € de marge sur le loyer prévu. [Voir le calcul à l’envers](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=lina&effort=400)
+
 **[Ouvrir le bilan de Lina en PDF · 11 pages](exemples/bilan-lina.pdf)** · [Lire les calculs sur GitHub](exemples/lina.md)
 
 <details>
@@ -62,6 +66,8 @@ Avant arrondi, l’effort annuel est de 4 656,2991 €, soit 388,0249 € par mo
 
 ## Quel exemple ressemble à votre projet ?
 
+**Vous hésitez entre deux annonces ?** Dans l’exemple, un appartement demande 388,02 € par mois la première année, l’autre 274,44 €. Le scénario de revente change la lecture à dix ans. [Comparer les deux biens et ouvrir leur PDF commun](exemples/deux-biens.md)
+
 | Projet | Question étudiée dans le bilan |
 | --- | --- |
 | [Location nue](exemples/location-nue.md) | Avec 1 000 € de loyer par mois, quel impôt au micro-foncier et au réel ? |
@@ -70,10 +76,15 @@ Avant arrondi, l’effort annuel est de 4 656,2991 €, soit 388,0249 € par mo
 | [SCI à l’IS](exemples/sci-is.md) | Sur 2 000 € de dividendes distribués, combien l’associé reçoit-il ? |
 | [Location sous Jeanbrun](exemples/jeanbrun.md) | Quelle déduction retenir si le logement est loué dix mois la première année ? |
 
+## Présenter un bilan à un client
+
+Ouvrez le bilan, choisissez **Personnaliser le document** et ajoutez le nom du cabinet, son logo, sa couleur et ses coordonnées. Le titre et le mot d’introduction peuvent changer à chaque mission. Le PDF est prêt à remettre au client et la version Markdown permet de réécrire le document. [Voir un comparatif PDF personnalisé](exemples/comparaison-deux-biens.pdf) · [Personnaliser mes documents](docs/personnaliser.md)
+
 ## Vérifier un chiffre
 
 - **[Tous les calculs](CALCULS.md)** pour refaire une mensualité, retrouver un rendement ou suivre les flux jusqu’à la revente.
 - **[Les 11 fiches vérifiées](articles/README.md)** pour choisir le bon montant et retrouver la source officielle. Les règles fiscales portent sur les revenus 2026.
+- **[La veille fiscale](docs/veille-fiscale.md)** pour voir quelles formules et quels exemples relire lorsqu’une source officielle évolue.
 - **[Le guide pratique](guide/README.md)** pour approfondir un sujet ou préparer une visite.
 
 Le lien personnel de votre bilan contient les chiffres du projet. Toute personne à qui vous le transmettez pourra les lire.

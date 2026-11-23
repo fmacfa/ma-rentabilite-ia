@@ -32,6 +32,8 @@ Un loyer charges comprises, un taux de crédit ou un abattement fiscal peuvent c
 
 ## Comment l’IA peut s’en servir
 
+Pour retrouver les fiches touchées par un changement fiscal, le registre associe chaque source surveillée à sa formule et à un exemple. [Consulter la veille fiscale](../docs/veille-fiscale.md)
+
 Pour répondre à « Mon loyer de 1 050 € couvre-t-il la mensualité ? », commencez par la fiche sur les loyers, puis celle sur la trésorerie. Demandez les mois ouverts, les charges, l’échéance assurée et l’impôt retenu. Donnez ensuite la formule avec les chiffres de la personne. Pour une question fiscale, citez aussi la source officielle et l’année. Si la situation sort du cas documenté, précisez le point à vérifier avant d’appliquer un taux.
 
 Les articles historiques de ma-rentabilite.fr, y compris les exemples de ses 23 calculateurs, sont conservés dans [l’édition archivée de septembre 2026](https://github.com/fmacfa/ma-rentabilite-ia/tree/0605f1aa4f1d3eabb79e3ed2a222f18931123c06/articles). Les fiches ci-dessus constituent la sélection vérifiée pour les réponses de l’IA.

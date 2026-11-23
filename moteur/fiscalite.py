@@ -46,6 +46,10 @@ def impot_personnel(base, taux_ps, f):
     return {"base_imposable": base, "ir_estime": ir, "prelevements_sociaux": ps, "impot": ir+ps}
 
 
+def taux_prelevements(location):
+    return .172 if location == "nue" else .186
+
+
 def micro(f, location, recettes, suivi):
     autres = f["autres_recettes"]
     total = recettes + autres
@@ -88,7 +92,7 @@ def estimer(f, location, an, recettes_hc, refacturees, gestion, indice_charges, 
         if recettes+f["autres_recettes"] > f["revenus_comparaison_lmp"]:
             raise ValueError("Les deux conditions de la location meublée professionnelle sont remplies. Le scénario LMNP ne s’applique plus.")
     if regime.startswith("micro_"):
-        return impot_personnel(micro(f, location, recettes, suivi), .186 if meuble else .172, f)
+        return impot_personnel(micro(f, location, recettes, suivi), taux_prelevements(location), f)
 
     # Les charges récupérées à prix coûtant apparaissent symétriquement des deux côtés au réel.
     charges = f["charges_deductibles_annuelles"]*indice_charges + gestion + (refacturees if meuble else 0)
@@ -146,4 +150,4 @@ def estimer(f, location, an, recettes_hc, refacturees, gestion, indice_charges, 
                     "dividendes_bruts_hypothese": dividendes, "pfu_associe": dividendes*.314,
                     "dividendes_nets_associe": dividendes*(1-.314)}
     detail["deficits_en_report"] = sum(v for _, v in suivi.deficits)
-    return {**detail, **impot_personnel(base, .186 if meuble else .172, f)}
+    return {**detail, **impot_personnel(base, taux_prelevements(location), f)}

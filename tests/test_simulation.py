@@ -7,6 +7,7 @@ import unittest
 
 from moteur.finance import bilan_flux, cession, echeancier
 from moteur.fiscalite import Suivi, ir_bareme
+from moteur.api import loyer_cible
 from renta import calcul, charger, comparer_fiscalite, lire
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,49 @@ def exemple(nom):
 
 
 class SimulationTests(unittest.TestCase):
+    def test_loyer_cible_de_lina_meme_sans_loyer_observe(self):
+        p = exemple("lina")
+        p["projection"]["effort_max_mensuel"] = 400
+        cible = calcul(p)["loyer_cible"]
+        self.assertEqual(cible["tarif"], 1034.88)
+        self.assertGreater(cible["cash_flow_mensuel"], -400)
+        self.assertLess(cible["cash_flow_au_centime_precedent"], -400)
+        p["location"]["loyer_mensuel_hc"] = None
+        p["revente"]["prix"] = None
+        d = calcul(p)
+        self.assertEqual(d["statut"], "a_completer")
+        self.assertEqual(d["loyer_cible"], cible)
+        self.assertIsNone(p["location"]["loyer_mensuel_hc"])
+        p["location"]["delai_mois"] = 12
+        self.assertEqual(loyer_cible(p)["statut"], "inatteignable")
+        p["projection"]["effort_max_mensuel"] = 2000
+        self.assertEqual(loyer_cible(p)["tarif"], 0)
+
+    def test_loyer_cible_recalcule_le_micro_et_respecte_son_seuil(self):
+        p = exemple("location-nue")
+        p.update(credit={"capital": 0}, charges_annuelles={"charges": 9000})
+        p["location"].update(gestion_pct=0, vacance_pct=0)
+        p["projection"]["effort_max_mensuel"] = 0
+        p["fiscalite"]["regime"] = "micro_foncier"
+        cible = loyer_cible(p)
+        self.assertEqual(cible["tarif"], 1120.08)
+        self.assertAlmostEqual(cible["impot"], 1120.08 * 12 * .7 * .472)
+        p["charges_annuelles"]["charges"] = 11000
+        self.assertIn("Micro-foncier hors seuil", loyer_cible(p)["motif"])
+
+    def test_tarif_cible_par_nuit_avec_annexes_et_gestion(self):
+        p = exemple("tourisme")
+        p.update(credit={"capital": 0}, fiscalite={"regime": "avant_impot"}, charges_annuelles={"charges": 15500})
+        p["projection"]["effort_max_mensuel"] = 0
+        p["location"].update(occupation_pct=50, delai_mois=0, gestion_pct=20, annexes_mensuelles=75)
+        cible = loyer_cible(p)
+        self.assertEqual((cible["champ"], cible["tarif"], cible["impot"]), ("prix_nuit", 100, None))
+        self.assertAlmostEqual(cible["cash_flow_mensuel"], 0)
+        p["location"]["occupation_pct"] = 0
+        self.assertEqual(loyer_cible(p)["statut"], "inatteignable")
+        p["projection"]["effort_max_mensuel"] = -1
+        self.assertEqual(loyer_cible(p)["statut"], "a_corriger")
+
     def test_tableau_de_lina_et_indicateurs_de_sortie(self):
         d = calcul(exemple("lina"), True)
         a = d["annees"][0]

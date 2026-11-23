@@ -117,14 +117,15 @@
     b.append(corps);
     return b;
   }
-  function exportPDF(rapport, titre = "Télécharger le PDF") {
-    return bouton(
+  function exportPDF(rapport, titre = "Télécharger le PDF", fichier) {
+    const commandes = document.createDocumentFragment();
+    commandes.append(bouton(
       titre,
       async (b) => {
         b.disabled = true;
         b.textContent = "Préparation du PDF…";
         try {
-          await RentaPDF.telecharger(rapport);
+          await RentaPDF.telecharger(rapport, fichier, RentaIdentite.valeur(rapport));
           notifier("Le PDF est prêt à être enregistré.");
         } catch {
           notifier(
@@ -136,7 +137,16 @@
         }
       },
       "btn primary",
-    );
+    ), bouton("Personnaliser le document", () => RentaIdentite.ouvrir(rapport, notifier)),
+    bouton("Télécharger en Markdown", () => {
+      const url = URL.createObjectURL(new Blob([RentaIdentite.markdown(rapport)], { type: "text/markdown;charset=utf-8" }));
+      const a = lien("", url);
+      a.download = (fichier || "bilan-locatif.pdf").replace(/\.pdf$/, ".md");
+      document.body.append(a);
+      a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+    }));
+    return commandes;
   }
   function textePourIA(p, r = null, statut = null) {
     const parties = [
@@ -146,24 +156,18 @@
     if (r)
       parties.push(
         "Voici les calculs de mon bilan. Explique-moi les chiffres et les hypothèses qui changeraient ma décision.",
-        RentaRapport.texte(r),
+        RentaIdentite.markdown(r),
       );
-    else
+    else {
       parties.push(
         "Aide-moi à compléter ce dossier. Pose-moi deux ou trois questions à la fois.",
         ...Object.values({ ...statut?.questions, ...statut?.erreurs }),
       );
+      if (statut?.loyer_cible) parties.push(...RentaRapport.sectionCible(statut.loyer_cible).paragraphes);
+    }
     return parties.join("\n\n");
   }
-  function renderRapport(p, r, nom, defauts, compare, variantes) {
-    const rapport = RentaRapport.construire(
-      p,
-      r,
-      defauts,
-      compare,
-      nom,
-      variantes,
-    );
+  function renderRapport(rapport) {
     entete(rapport.titre, rapport.sousTitre);
     const stats = el("div", null, "stats");
     for (const i of rapport.indicateurs) {
@@ -182,6 +186,7 @@
         ),
       ),
       bouton("Modifier les chiffres", () => ouvrirEdition(actuel)),
+      bouton("Comparer avec un autre bien", () => formulaireDuo(BASE + RentaChamps.encode(actuel))),
     );
     zone.append(actions);
     const partage = el("p", null, "fine");
@@ -203,7 +208,7 @@
     );
     zone.append(intro);
     for (const s of rapport.sections)
-      zone.append(vueSection(s, s.titre === "Trésorerie de la première année"));
+      zone.append(vueSection(s, ["Trésorerie de la première année", "Loyer cible pour votre budget"].includes(s.titre)));
   }
   function incomplet(p, r) {
     entete(
@@ -244,9 +249,13 @@
       ),
     );
     zone.append(actions);
+    const cible = r.loyer_cible && RentaRapport.sectionCible(r.loyer_cible);
+    if (cible) zone.append(vueSection(cible, true));
     const rep = r.premiers_reperes;
+    let rapport, libelle;
     if (rep?.loyer_theorique_annuel_hc != null) {
-      const rapport = {
+      libelle = "Télécharger cette estimation en PDF";
+      rapport = {
         titre: "Première estimation du loyer",
         sousTitre:
           "Projet incomplet · avant frais, vacance, crédit et fiscalité",
@@ -277,20 +286,82 @@
             ],
             tables: [],
           },
-          {
-            titre: "Données à compléter",
-            paragraphes: items.map(([, v]) => v),
-            tables: [],
-          },
         ],
       };
-      zone.append(
-        vueSection(rapport.sections[0], true),
-        exportPDF(rapport, "Télécharger cette estimation en PDF"),
-      );
+      zone.append(vueSection(rapport.sections[0], true));
+    } else if (r.loyer_cible?.statut === "calcule") {
+      const c = r.loyer_cible;
+      libelle = "Télécharger le calcul du loyer cible en PDF";
+      rapport = { titre: "Votre loyer cible", sousTitre: "Objectif de trésorerie en première année",
+        indicateurs: [{ label: c.champ === "prix_nuit" ? "Prix par nuit" : "Loyer mensuel HC", valeur: RentaRapport.eur(c.tarif) }], sections: [] };
+    }
+    if (rapport) {
+      if (cible) rapport.sections.push(cible);
+      if (p.hypotheses?.length) rapport.sections.push({ titre: "Hypothèses du dossier", paragraphes: p.hypotheses, tables: [] });
+      rapport.sections.push({ titre: "Données à compléter", paragraphes: [r.motif, ...items.map(([, v]) => v)].filter(Boolean), tables: [] });
+      const exportations = el("div", null, "actions");
+      exportations.append(exportPDF(rapport, libelle));
+      zone.append(exportations);
     }
   }
   let actuel;
+  async function calculerDossier(fiche) {
+    const p = fiche.projet;
+    const r = await RentaMoteur.calculer(p);
+    if (r.statut !== "calcule") return { ...fiche, r };
+    const [lecture, comparaison, variantes] = await Promise.all([
+      RentaMoteur.entrees(p),
+      ["avant_impot", "montant_connu"].includes(r.regime) ? null : RentaMoteur.comparer(p),
+      RentaMoteur.sensibilite(p),
+    ]);
+    return { ...fiche, r, rapport: RentaRapport.construire(lecture.projet, r, lecture.defauts,
+      comparaison, TITRES[fiche.exemple] || "Votre bilan locatif", variantes) };
+  }
+
+  function formulaireDuo(a = "", b = "") {
+    entete("Comparer deux biens", "Collez les liens des deux bilans que votre IA vous a préparés.");
+    const form = el("form", null, "form-set"), erreur = el("p", null, "error-message");
+    erreur.setAttribute("role", "alert");
+    const champs = [a, b].map((valeur, i) => {
+      const champ = el("label", i ? "Lien du bien B" : "Lien du bien A", "field");
+      const input = el("input");
+      input.type = "text";
+      input.required = true;
+      input.value = valeur;
+      input.placeholder = BASE + "#…";
+      champ.append(input);
+      form.append(champ);
+      return input;
+    });
+    const ok = el("button", "Comparer les deux biens", "btn primary");
+    ok.type = "submit";
+    form.append(erreur, ok);
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      try {
+        const hash = RentaComparaison.encoder(champs[0].value, champs[1].value);
+        if (location.hash === hash) router();
+        else location.hash = hash;
+      } catch (err) { erreur.textContent = err.message; }
+    });
+    zone.append(form, lien("Essayer avec deux annonces fictives", DEPOT + "/blob/main/exemples/deux-biens.md"));
+  }
+
+  function afficherDuo(dossiers) {
+    const rapport = RentaComparaison.rapport(dossiers);
+    entete(rapport.titre, rapport.sousTitre);
+    const actions = el("div", null, "actions");
+    const liens = dossiers.map(d => BASE + "#" + d.fragment);
+    actions.append(exportPDF(rapport, "Télécharger le PDF des deux biens", "comparaison-locative.pdf"),
+      bouton("Copier le détail pour mon IA", () => copier([GUIDE, BASE + location.hash, RentaIdentite.markdown(rapport)].join("\n\n"), "Comparaison copiée.")),
+      bouton("Changer les biens", () => formulaireDuo(...liens)));
+    zone.append(actions, vueSection(rapport.sections[0], true));
+    const nav = el("div", null, "actions");
+    dossiers.forEach((d, i) => nav.append(lien("Ouvrir le détail du bien " + (i ? "B" : "A"), "#" + d.fragment, "btn")));
+    nav.append(bouton("Copier le lien de la comparaison", () => copier(BASE + location.hash, "Lien de la comparaison copié.")));
+    zone.append(nav);
+    for (const s of rapport.sections.slice(1).filter(s => s.titre.endsWith("Données à compléter"))) zone.append(vueSection(s, true));
+  }
   const structurants = new Set([
     "achat.mode_acte",
     "credit.capital",
@@ -341,6 +412,7 @@
       fiscalite: ["regime"],
       projection: [
         "annees",
+        "effort_max_mensuel",
         "index_loyers_pct",
         "index_charges_pct",
         "actualisation_pct",
@@ -442,6 +514,7 @@
     dividendes_bruts_annuels: 0,
   };
   const aides = {
+    "projection.effort_max_mensuel": "Facultatif. Indiquez votre budget pour calculer le loyer minimum. Avec 0 €, vous cherchez l’équilibre.",
     "credit.capital": "Indiquez 0 pour un achat comptant.",
     "credit.duree_mois": "20 ans correspondent à 240 mois.",
     "achat.taux_departement_pct":
@@ -541,7 +614,8 @@
           input.addEventListener("input", () => {
             try {
               const v = RentaChamps.valeur(key, input.value);
-              (actuel[g] ||= {})[k] = v;
+              if (key === "projection.effort_max_mensuel" && v === null) delete actuel.projection?.effort_max_mensuel;
+              else (actuel[g] ||= {})[k] = v;
               input.setCustomValidity("");
               input.removeAttribute("aria-invalid");
               erreurs.textContent = "";
@@ -642,43 +716,23 @@
       ouvrirEdition(neuf());
       return;
     }
+    if (h === "#duo") {
+      formulaireDuo();
+      return;
+    }
     try {
-      let titre;
-      if (h.startsWith("#exemple=")) {
-        const k = h.slice(9);
-        if (!Object.hasOwn(RentaContenus.exemples, k))
-          throw new Error("Cet exemple est introuvable.");
-        actuel = JSON.parse(JSON.stringify(RentaContenus.exemples[k]));
-        titre = TITRES[k];
-      } else {
-        actuel = RentaChamps.decode(h);
-        titre = "Votre bilan locatif";
-      }
-      const p = actuel;
       entete("Calcul du bilan…");
       zone.setAttribute("aria-busy", "true");
-      const r = await RentaMoteur.calculer(p);
-      if (ticket !== version) return;
-      if (r.statut !== "calcule") {
-        incomplet(p, r);
+      if (h.startsWith("#duo=")) {
+        const dossiers = await Promise.all(RentaComparaison.decoder(h).map(calculerDossier));
+        if (ticket === version) afficherDuo(dossiers);
         return;
       }
-      const [lecture, comparaison, variantes] = await Promise.all([
-        RentaMoteur.entrees(p),
-        !["avant_impot", "montant_connu"].includes(r.regime)
-          ? RentaMoteur.comparer(p)
-          : null,
-        RentaMoteur.sensibilite(p),
-      ]);
+      const dossier = await calculerDossier(RentaComparaison.fiche(h));
       if (ticket !== version) return;
-      renderRapport(
-        lecture.projet,
-        r,
-        titre,
-        lecture.defauts,
-        comparaison,
-        variantes,
-      );
+      actuel = dossier.projet;
+      if (dossier.rapport) renderRapport(dossier.rapport);
+      else incomplet(actuel, dossier.r);
     } catch (e) {
       if (ticket === version) {
         entete("Impossible d’ouvrir ce bilan", e.message);

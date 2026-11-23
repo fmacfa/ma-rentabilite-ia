@@ -1,7 +1,8 @@
 """Actions de simulation partagées entre le navigateur et les outils locaux."""
 from .saisie import lire
 from .simulation import simuler
-from .fiscalite import QuestionFiscale
+from .finance import echeancier
+from .fiscalite import QuestionFiscale, taux_prelevements
 
 
 def reperes(projet):
@@ -14,6 +15,14 @@ def reperes(projet):
 
 
 def calcul(brut, echeancier=False, an1=False):
+    resultat = _calcul(brut, echeancier, an1)
+    projection = brut.get("projection")
+    if not an1 and isinstance(projection, dict) and projection.get("effort_max_mensuel") is not None:
+        resultat["loyer_cible"] = loyer_cible(brut)
+    return resultat
+
+
+def _calcul(brut, echeancier, an1):
     fiche = lire(brut)
     if fiche.questions or fiche.erreurs:
         return {"statut": "a_corriger" if fiche.erreurs else "a_completer",
@@ -25,6 +34,78 @@ def calcul(brut, echeancier=False, an1=False):
     except ValueError as err:
         return {"statut": "hors_perimetre", "motif": str(err)}
     return {"statut": "calcule", **resultat, "valeurs_par_defaut": fiche.defauts}
+
+
+def loyer_cible(brut):
+    """Premier tarif au centime qui respecte le budget moyen de l’année 1."""
+    loc = brut.get("location")
+    projection = brut.get("projection")
+    budget = projection.get("effort_max_mensuel") if isinstance(projection, dict) else None
+    tourisme = isinstance(loc, dict) and loc.get("type") in ("tourisme_classe", "tourisme_non_classe")
+    cle = "prix_nuit" if tourisme else "loyer_mensuel_hc"
+    scenario = {**brut, "projection": {"annees": 1, "effort_max_mensuel": budget}}
+    scenario.pop("revente", None)
+    if isinstance(loc, dict):
+        scenario["location"] = {**loc, cle: 0}
+    fiche = lire(scenario)
+    if fiche.questions or fiche.erreurs:
+        return {"statut": "a_corriger" if fiche.erreurs else "a_completer",
+                "erreurs": fiche.erreurs, "questions": fiche.questions}
+    p = fiche.projet
+    dette = echeancier(p["credit"])
+    location, fiscalite = p["location"], p["fiscalite"]
+
+    def essai(centimes):
+        location[cle] = centimes / 100
+        try:
+            resultat = simuler(p, premiere_annee=True, dette_preparee=dette)
+        except QuestionFiscale as err:
+            return {"statut": "a_completer", "questions": {err.champ: str(err)}}
+        except ValueError as err:
+            return {"statut": "hors_perimetre", "motif": str(err)}
+        an = resultat["annees"][0]
+        return {"statut": "calcule", "tarif": location[cle], "champ": cle, "effort_max_mensuel": budget,
+                "flux_retenus": resultat["flux_retenus"], "mois_ouverts": an["mois_ouverts"],
+                "recettes": an["recettes_hc_et_annexes"], "gestion": an["gestion"],
+                "charges": an["charges_proprietaire"], "dette": an["dette_assurance_comprise"],
+                "impot": an["fiscalite"]["impot"], "cash_flow_mensuel": an["cash_flow_mensuel_retenu"]}
+
+    def insuffisant(essai):
+        return essai["statut"] == "calcule" and essai["cash_flow_mensuel"] < -budget - 1e-10
+
+    bas, precedent = 0, essai(0)
+    if not insuffisant(precedent):
+        return precedent
+    occupation = location["occupation_pct"] if tourisme else 100 - location["vacance_pct"]
+    if not precedent["mois_ouverts"] or not occupation or location["gestion_pct"] == 100:
+        return {"statut": "inatteignable", "motif": "Aucun loyer supplémentaire ne reste disponible en année 1 avec ces hypothèses de délai, d’occupation et de gestion."}
+    if fiscalite["regime"].startswith("micro_"):
+        # Les frais réels de gestion ne réduisent pas la base du micro. En cas
+        # de frais très élevés, la trésorerie peut diminuer quand le loyer monte.
+        taux_ir_max = fiscalite.get("tmi_pct", 45)
+        if location["gestion_pct"] + taux_ir_max + 100 * taux_prelevements(location["type"]) > 100:
+            return {"statut": "hors_perimetre", "motif": "Avec ces frais de gestion au micro, une hausse du loyer peut réduire la trésorerie. Comparer des loyers précis avec le bilan."}
+    limite = 100_000_000_000_000  # Maximum accepté par la saisie, en centimes.
+    haut = 100_000
+    candidat = essai(haut)
+    while insuffisant(candidat) and haut < limite:
+        bas, precedent = haut, candidat
+        haut = min(2 * haut, limite)
+        candidat = essai(haut)
+    if insuffisant(candidat):
+        return {"statut": "inatteignable", "motif": "L’objectif dépasse la plage de montants du calcul."}
+    # Une sortie du régime est aussi une borne haute. Un tarif valable
+    # peut encore exister entre le dernier essai et ce seuil.
+    while haut - bas > 1:
+        milieu = (bas + haut) // 2
+        essai_milieu = essai(milieu)
+        if insuffisant(essai_milieu):
+            bas, precedent = milieu, essai_milieu
+        else:
+            haut, candidat = milieu, essai_milieu
+    if candidat["statut"] == "calcule":
+        candidat["cash_flow_au_centime_precedent"] = precedent["cash_flow_mensuel"]
+    return candidat
 
 
 def indicateurs(d):
@@ -66,6 +147,9 @@ def comparer_fiscalite(brut):
 
 
 def sensibilite(brut):
+    if isinstance(brut.get("projection"), dict) and "effort_max_mensuel" in brut["projection"]:
+        brut = {**brut, "projection": dict(brut["projection"])}
+        del brut["projection"]["effort_max_mensuel"]
     verification = calcul(brut)
     if verification["statut"] != "calcule":
         return verification

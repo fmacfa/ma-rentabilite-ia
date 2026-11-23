@@ -4,6 +4,8 @@
 
 ## Choisir les colonnes utiles
 
+Le registre indique la version des principales sources officielles et renvoie aux calculs à revoir si leur contenu évolue. [Consulter la veille fiscale](veille-fiscale.md)
+
 | Situation du projet | Scénarios à comparer | Données qui peuvent faire basculer la comparaison |
 | --- | --- | --- |
 | Location nue en direct | Micro-foncier et réel foncier | Total de tous les loyers fonciers du foyer, frais réellement déductibles, intérêts, travaux, durée de l’option |

@@ -3,7 +3,7 @@ from .finance import bilan_flux, cession, cout_acquisition, echeancier, frais_ac
 from .fiscalite import QuestionFiscale, Suivi, estimer
 
 
-def simuler(p, avec_echeancier=False, premiere_annee=False):
+def simuler(p, avec_echeancier=False, premiere_annee=False, dette_preparee=None):
     achat, loc, credit = p["achat"], p["location"], p["credit"]
     f, proj = p["fiscalite"], p["projection"]
     location = loc["type"]
@@ -13,7 +13,7 @@ def simuler(p, avec_echeancier=False, premiere_annee=False):
     apport = cout+frais_banque-credit["capital"]
     if apport < 0:
         raise ValueError("Le crédit dépasse le coût du projet frais bancaires compris. Vérifier les montants financés.")
-    dette = echeancier(credit)
+    dette = echeancier(credit) if dette_preparee is None else dette_preparee
     nb_ans = 1 if premiere_annee else proj["annees"]
     if f["regime"] == "jeanbrun" and "revente" in p and 12*proj["annees"]-loc["delai_mois"] < 108:
         raise ValueError("La vente précède les neuf ans de location requis pour Jeanbrun. Chiffrer séparément une éventuelle reprise.")

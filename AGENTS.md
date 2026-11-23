@@ -8,6 +8,8 @@ Pose deux ou trois questions à la fois. Une donnée inconnue reste à préciser
 
 ## Ressources
 
+Pour un budget maximal, deux annonces ou un imprévu, pars de la décision et combine les calculs nécessaires. Garde les hypothèses communes. Détaille tout ajustement propre à la personne avec sa période, sa provenance, sa formule et son effet sur les flux. [Exemples d’adaptation et restitution en PDF](assistant.md#adapter-les-calculs-à-la-décision)
+
 - [Parcours et format des liens de bilan](assistant.md)
 - [Champs et unités](docs/saisie.md)
 - [Tous les calculs et leurs exemples chiffrés](CALCULS.md)

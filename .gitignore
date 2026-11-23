@@ -9,6 +9,7 @@
 *.sqlite*
 *.pdf
 !/exemples/bilan-lina.pdf
+!/exemples/comparaison-deux-biens.pdf
 *.xlsx
 *.csv
 __pycache__/

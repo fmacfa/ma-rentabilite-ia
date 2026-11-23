@@ -27,6 +27,7 @@ Un dossier JSON représente un achat, un mode de location et un financement. Les
 | `charges_refacturees_annuelles` | Recettes de charges récupérées à prix coûtant sur une année stabilisée, par défaut 0. Elles entrent dans les recettes du micro-BIC. Le moteur neutralise la dépense correspondante dans la trésorerie. |
 | `charges_annuelles` | Objet regroupant les dépenses restant au bailleur par poste libre. Par exemple `{"copropriete": 850, "taxe_fonciere_hors_teom": 1100}`. Exclure assurance emprunteur, gestion proportionnelle et charges refacturées déjà modélisées. `{}` signifie explicitement zéro charge. |
 | `projection.annees` | Horizon de 1 à 50 ans. Une ligne par période de 12 mois. |
+| `projection.effort_max_mensuel` | Facultatif, en euros par mois. Demande le loyer HC minimum, ou le prix par nuit, qui respecte cet effort moyen en année 1. Zéro demande l’équilibre. Le loyer prévu peut rester inconnu. [Méthode et exemple](../CALCULS.md#loyer-minimum-pour-un-budget-mensuel) |
 | `index_loyers_pct`, `index_charges_pct`, `actualisation_pct` | Dans `projection`. Défauts respectifs 0 %, 0 % et 5 %. Les taux sont des scénarios à confirmer. |
 
 ## Fiscalité

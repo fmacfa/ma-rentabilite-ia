@@ -9,7 +9,7 @@ CHAMPS = {
     "achat": "prix frais_acte mode_acte taux_departement_pct agence_en_plus travaux mobilier autres",
     "credit": "capital apport_hors_frais_bancaires taux_pct duree_mois differe_mois type_differe mode_assurance assurance garantie dossier",
     "location": "type loyer_mensuel_hc prix_nuit occupation_pct vacance_pct annexes_mensuelles gestion_pct delai_mois charges_refacturees_annuelles",
-    "projection": "annees index_loyers_pct index_charges_pct actualisation_pct",
+    "projection": "annees index_loyers_pct index_charges_pct actualisation_pct effort_max_mensuel",
     "fiscalite": "regime annee_reference detention conditions_confirmees micro_compatible tmi_pct mode_ir revenu_hors_location parts impot_annuel evolution_impot_connu charges_deductibles_annuelles deductions_annee_1 autres_recettes recettes_n1 recettes_n2 revenus_comparaison_lmp amortissement_annuel base_amortissable taux_reduit_is dividendes_bruts_annuels type_jeanbrun niveau_jeanbrun base_jeanbrun plafond_jeanbrun mois_jeanbrun_an1",
     "revente": "prix frais indemnite mode_indemnite impot mode_impot base_acquisition_fiscale frais_cession_deductibles amortissements_a_reintegrer cas_particulier_confirme",
 }
@@ -147,6 +147,8 @@ def lire(brut):
                 l.projet["charges_annuelles"][poste] = montant
 
     champ("projection.annees", "Sur combien d’années souhaitez-vous étudier les flux ?", minimum=1, maximum=50, entier=True)
+    if isinstance(brut.get("projection"), dict) and "effort_max_mensuel" in brut["projection"]:
+        champ("projection.effort_max_mensuel", "Quel effort d’épargne moyen acceptez-vous par mois la première année ?")
     champ("projection.index_loyers_pct", "Quelle évolution annuelle des loyers retenir en % ?", 0, minimum=-99, maximum=50)
     champ("projection.index_charges_pct", "Quelle évolution annuelle des charges retenir en % ?", 0, minimum=-99, maximum=50)
     champ("projection.actualisation_pct", "À quel taux annuel en % voulez-vous actualiser les flux ?", 5, minimum=-50, maximum=100)

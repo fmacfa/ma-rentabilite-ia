@@ -229,6 +229,22 @@
     }
     return exp;
   }
+  function sectionCible(c) {
+    const titre = "Loyer cible pour votre budget";
+    if (c.statut !== "calcule") return { titre, tables: [], paragraphes: [
+      c.motif || Object.values({ ...c.erreurs, ...c.questions }).join(" "),
+    ] };
+    const unite = c.champ === "prix_nuit" ? "par nuit" : "par mois hors charges";
+    const paragraphes = [
+      "Pour limiter l’effort moyen à " + eur(c.effort_max_mensuel) + " par mois en année 1, le premier tarif qui convient est " + eur(c.tarif) + " " + unite + ".",
+      "Le calcul garde le financement, les frais et la durée de mise en location du dossier. Il recalcule la gestion et l’impôt applicable à chaque tarif. Le budget porte sur les douze mois, dont " + c.mois_ouverts + " ouverts à la location.",
+      "Trésorerie mensuelle au tarif cible (" + c.flux_retenus + ") = (" + eur(c.recettes) + " de recettes − " + eur(c.gestion) + " de gestion − " + eur(c.charges) + " de charges − " + eur(c.dette) + " de crédit" + (c.impot == null ? "" : " − " + eur(c.impot) + " d’impôt") + ") / 12 = " + eur(c.cash_flow_mensuel) + ".",
+    ];
+    if (c.cash_flow_au_centime_precedent != null)
+      paragraphes.push("À " + eur(c.tarif - .01) + ", la trésorerie est de " + court.format(c.cash_flow_au_centime_precedent) + " €/mois avant arrondi. Ce tarif dépasse l’effort accepté.");
+    paragraphes.push("Vérifiez le loyer praticable avec des références locales et, s’il y a lieu, le plafond applicable au bail.");
+    return { titre, paragraphes, tables: [] };
+  }
   function construire(
     p,
     r,
@@ -277,6 +293,7 @@
     };
     const ajouter = (titre, paragraphes = [], tables = []) =>
       rapport.sections.push({ titre, paragraphes, tables });
+    if (r.loyer_cible) rapport.sections.push(sectionCible(r.loyer_cible));
     const couts = [
       ["Prix d’achat", eur(a.prix)],
       ["Agence à ajouter", eur(a.agence_en_plus)],
@@ -1027,7 +1044,7 @@
       ...r.indicateurs.map((i) => rangee([i.label, i.valeur])),
     ];
     for (const s of r.sections) {
-      const long = s.titre === "Échéancier mensuel du prêt";
+      const long = s.titre.endsWith("Échéancier mensuel du prêt");
       lignes.push("", "## " + s.titre);
       if (long)
         lignes.push(
@@ -1049,5 +1066,5 @@
     }
     return lignes.join("\n");
   }
-  window.RentaRapport = { construire, texte, eur, pct, n, entree };
+  window.RentaRapport = { construire, texte, eur, pct, n, entree, sectionCible };
 })();

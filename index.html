@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#f6f8f3" />
+    <meta name="theme-color" content="#f5f8fc" />
     <meta name="referrer" content="no-referrer" />
     <title>Exporter un bilan locatif · Ma Rentabilité IA</title>
     <meta
@@ -15,7 +15,9 @@
     <script defer src="web/contenus.js"></script>
     <script defer src="web/moteur/renta.js"></script>
     <script defer src="web/rapport.js"></script>
+    <script defer src="web/comparaison.js"></script>
     <script defer src="web/pdf/rapport-pdf.js"></script>
+    <script defer src="web/pdf/personnalisation.js"></script>
     <script defer src="web/app.js"></script>
   </head>
   <body>
@@ -61,6 +63,38 @@
       </div>
     </footer>
     <div id="notification" role="status" aria-live="polite"></div>
+    <dialog id="identite-pdf" aria-labelledby="titre-identite">
+      <form>
+        <h2 id="titre-identite">Personnaliser le document</h2>
+        <section class="apercu-pdf" aria-label="Aperçu de la personnalisation">
+          <div><img alt="Logo du cabinet" hidden /><strong data-apercu="nom"></strong></div>
+          <h3 data-apercu="titre"></h3>
+          <p data-apercu="indicateur"></p>
+          <small data-apercu="pied"></small>
+        </section>
+        <div class="identite-champs">
+          <label class="field">Nom du cabinet ou de l’auteur<input name="nom" maxlength="100" placeholder="Ma Rentabilité IA" /></label>
+          <div class="field"><label for="teinte-pdf">Couleur principale</label><div class="teinte">
+            <input id="teinte-pdf" name="teinte" type="color" value="#153359" />
+            <input name="couleur" aria-label="Code couleur hexadécimal" value="#153359" required pattern="#[0-9a-fA-F]{6}" maxlength="7" />
+          </div></div>
+          <div class="field"><label for="logo-pdf">Logo du cabinet</label>
+            <input id="logo-pdf" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" />
+            <button type="button" name="retirer" class="btn sm" hidden>Retirer le logo</button>
+          </div>
+          <label class="field">Pied de page<input name="pied" maxlength="180" placeholder="Coordonnées, signature ou mention du cabinet" /></label>
+          <label class="field pleine">Titre de ce document<input name="titre" maxlength="180" /></label>
+          <label class="field pleine">Introduction de ce document<textarea name="introduction" rows="2" placeholder="Votre commentaire pour le destinataire"></textarea></label>
+        </div>
+        <label class="memoriser"><input type="checkbox" name="memoriser" /> Mémoriser le nom, le logo, la couleur et le pied de page sur cet appareil</label>
+        <p class="error-message" role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn primary">Appliquer</button>
+          <button type="button" name="annuler" class="btn">Annuler</button>
+          <button type="button" name="defaut" class="btn sm">Rétablir le modèle initial</button>
+        </div>
+      </form>
+    </dialog>
     <dialog id="copie-manuelle">
       <h2>Copier dans votre IA</h2>
       <p>Sélectionnez le texte, puis copiez-le dans votre conversation.</p>

@@ -79,6 +79,7 @@
   champ("location", "gestion_pct", "Honoraires de gestion sur les loyers", "%");
   champ("location", "delai_mois", "Délai avant le premier loyer", "mois");
   champ("projection", "annees", "Durée de l’étude", "ans");
+  champ("projection", "effort_max_mensuel", "Effort d’épargne maximal en année 1", "€/mois");
   champ("projection", "index_loyers_pct", "Évolution annuelle des loyers", "%");
   champ(
     "projection",
