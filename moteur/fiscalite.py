@@ -1,5 +1,4 @@
 """Scénarios à droit constant. Voir docs/fiscalite.md pour le périmètre et les sources."""
-from dataclasses import dataclass, field
 
 
 class QuestionFiscale(ValueError):
@@ -7,12 +6,13 @@ class QuestionFiscale(ValueError):
     champ = "fiscalite.revenus_comparaison_lmp"
 
 
-@dataclass
 class Suivi:
-    deficits: list = field(default_factory=list)
-    amortissements_differes: float = 0.0
-    base_amortie: float = 0.0
-    recettes_bic: list = field(default_factory=list)
+    """Soldes de report de la projection, propres à chaque dossier."""
+    def __init__(self, deficits=None, amortissements_differes=0.0, base_amortie=0.0, recettes_bic=None):
+        self.deficits = [] if deficits is None else deficits
+        self.amortissements_differes = amortissements_differes
+        self.base_amortie = base_amortie
+        self.recettes_bic = [] if recettes_bic is None else recettes_bic
 
     def imputer(self, an, benefice, duree=10):
         restant = []

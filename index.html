@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f6f8f3" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Ma Rentabilité — Étudier son projet locatif avec son IA</title>
+    <meta
+      name="description"
+      content="Un lien à coller dans votre IA pour chiffrer un projet locatif en France, comprendre les calculs et télécharger le bilan en PDF."
+    />
+    <link rel="stylesheet" href="web/interface.css" />
+    <script defer src="web/champs.js"></script>
+    <script defer src="web/contenus.js"></script>
+    <script defer src="web/moteur/renta.js"></script>
+    <script defer src="web/rapport.js"></script>
+    <script defer src="web/pdf/rapport-pdf.js"></script>
+    <script defer src="web/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="top">
+      <div class="wrap nav">
+        <a class="brand" href="index.html"
+          ><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>Ma
+          Rentabilité</a
+        >
+        <nav aria-label="Navigation principale">
+          <a href="index.html">Accueil</a
+          ><a href="calculs.html">Tous les calculs</a>
+        </nav>
+      </div>
+    </header>
+    <main id="contenu" tabindex="-1">
+      <div id="accueil">
+        <div class="wrap hero">
+          <section class="intro">
+            <h1>Votre projet locatif,<br /><em>avec votre IA.</em></h1>
+            <p>
+              Collez le lien dans votre assistant. Il vous pose les bonnes
+              questions, chiffre votre effort d’épargne et vous remet un bilan
+              détaillé à télécharger en PDF.
+            </p>
+            <div class="sharebox">
+              <div class="sharelabel">Le lien à donner à votre IA</div>
+              <a href="assistant.md" class="guide-url"
+                >fmacfa.github.io/ma-rentabilite-ia/assistant.md</a
+              >
+              <button class="btn primary" type="button" id="copier-lien">
+                <span class="copy-ico" aria-hidden="true"></span>Copier pour mon
+                IA
+              </button>
+            </div>
+            <details class="help">
+              <summary>Mon IA ne peut pas ouvrir le lien</summary>
+              <p>
+                Copiez le guide dans le chat ou joignez-le comme fichier.
+                Ajoutez ensuite les chiffres que vous connaissez.
+              </p>
+              <button class="btn sm" id="copier-guide" type="button">
+                Copier le texte du guide
+              </button>
+              <a
+                class="text-link"
+                href="assistant.md"
+                download="guide-locatif.md"
+                >Télécharger le guide</a
+              >
+            </details>
+          </section>
+          <aside class="sample">
+            <div class="sample-top">
+              <span>Exemple de bilan</span
+              ><span class="paper-icon" aria-hidden="true">€</span>
+            </div>
+            <h2>Le projet de Lina</h2>
+            <p class="sub">Appartement meublé · Achat à crédit</p>
+            <div class="sample-stats">
+              <div>
+                <span>Coût d’acquisition</span><strong>171 000 €</strong>
+              </div>
+              <div><span>Rendement net</span><strong>5,26 %</strong></div>
+            </div>
+            <p class="cash-label">Effort d’épargne en première année</p>
+            <div class="sample-cash">388,02 € <span>/ mois</span></div>
+            <a class="btn paper" href="#exemple=lina"
+              >Ouvrir le bilan de Lina</a
+            >
+          </aside>
+        </div>
+        <section class="band">
+          <div class="wrap">
+            <div class="section-heading">
+              <div>
+                <h2>Explorer les exemples</h2>
+                <p>
+                  Ouvrez un cas fictif pour voir les calculs, modifier ses
+                  chiffres ou essayer l’export PDF.
+                </p>
+              </div>
+              <a class="text-link" href="#saisie">Saisir mon propre projet</a>
+            </div>
+            <div class="example-grid">
+              <a href="#exemple=location-nue"
+                ><span class="category">Location nue</span
+                ><strong>Micro-foncier ou réel ?</strong
+                ><span>Comparer l’impôt sur un même loyer.</span></a
+              >
+              <a href="#exemple=location-meublee"
+                ><span class="category">Location meublée</span
+                ><strong>Le meublé à l’année</strong
+                ><span>Mesurer l’effet des amortissements.</span></a
+              >
+              <a href="#exemple=tourisme"
+                ><span class="category">Courte durée</span
+                ><strong>Un meublé de tourisme</strong
+                ><span>Passer du prix par nuit au revenu annuel.</span></a
+              >
+              <a href="#exemple=sci-is"
+                ><span class="category">Société</span
+                ><strong>Une SCI à l’IS</strong
+                ><span>Suivre la trésorerie et les dividendes.</span></a
+              >
+              <a href="#exemple=jeanbrun"
+                ><span class="category">Dispositif fiscal</span
+                ><strong>La location sous Jeanbrun</strong
+                ><span>Calculer une déduction plafonnée.</span></a
+              >
+              <a href="#exemple=lina"
+                ><span class="category">Crédit et revente</span
+                ><strong>Dix ans avec Lina</strong
+                ><span>Retrouver les flux, le TRI et la VAN.</span></a
+              >
+            </div>
+          </div>
+        </section>
+        <section class="wrap references">
+          <div>
+            <h2>Comment le résultat est-il calculé ?</h2>
+            <p>
+              Retrouvez chaque formule, ses unités et un exemple chiffré, de
+              l’achat à la revente.
+            </p>
+          </div>
+          <a class="btn" href="calculs.html">Voir tous les calculs</a>
+        </section>
+        <noscript
+          ><p class="wrap">
+            Le guide à copier dans votre IA et la page « Tous les calculs » se
+            lisent directement. Activez JavaScript pour calculer un bilan et
+            télécharger son PDF.
+          </p></noscript
+        >
+      </div>
+      <div class="wrap dossier" id="dossier" hidden></div>
+    </main>
+    <footer>
+      <div class="wrap foot">
+        <span>Ma Rentabilité · Immobilier locatif en France</span>
+        <nav aria-label="Ressources">
+          <a href="https://github.com/fmacfa/ma-rentabilite-ia/tree/main/guide"
+            >Guide pratique</a
+          ><a
+            href="https://github.com/fmacfa/ma-rentabilite-ia/tree/main/articles"
+            >99 articles</a
+          ><a href="https://github.com/fmacfa/ma-rentabilite-ia">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div id="notification" role="status" aria-live="polite"></div>
+    <dialog id="copie-manuelle">
+      <h2>Copier dans votre IA</h2>
+      <p>Sélectionnez le texte, puis copiez-le dans votre conversation.</p>
+      <textarea readonly aria-label="Texte à copier"></textarea>
+      <form method="dialog"><button class="btn">Fermer</button></form>
+    </dialog>
+  </body>
+</html>

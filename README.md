@@ -1,53 +1,34 @@
 # Ma Rentabilité IA
 
-Étudiez un investissement locatif en France avec votre propre assistant. Donnez-lui un prix et un loyer. Il peut déjà estimer le rendement annoncé, puis vous aider à chiffrer les frais, la vacance, le crédit et les impôts pour savoir combien vous devrez ajouter ou pourrez retirer chaque mois.
+**[Copier le lien pour mon IA](https://fmacfa.github.io/ma-rentabilite-ia/)** · **[Voir tous les calculs](https://fmacfa.github.io/ma-rentabilite-ia/calculs.html)** · **[Essayer un bilan et son PDF](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=lina)**
 
-## Commencer avec son IA
+Un lien suffit pour étudier un investissement locatif en France avec ChatGPT, Claude, Codex ou un autre assistant capable de lire une page. Vous pouvez lui envoyer ce message tel quel.
 
-Téléchargez le dépôt avec **Code → Download ZIP** et décompressez-le, ou clonez-le. Ouvrez le dossier dans Codex, Claude Code ou un autre assistant capable de lire des fichiers et de lancer Python. Copiez ce message dans la conversation.
+> Lis ce guide et accompagne-moi pas à pas pour étudier mon investissement locatif. https://fmacfa.github.io/ma-rentabilite-ia/assistant.md
 
-> Je regarde un appartement à 150 000 €, louable 950 € hors charges par mois. Aide-moi à savoir combien je devrai sortir de ma poche chaque mois. Pose-moi les questions qui changent le plus le résultat, deux ou trois à la fois. Je ne connais pas encore tous les chiffres. Compare les options fiscales qui correspondent à mon cas et indique ce qui pourrait changer la conclusion.
+1. **Parlez du projet.** Donnez ce que vous connaissez déjà, par exemple un prix et un loyer. Votre IA vous pose deux ou trois questions à la fois et garde visibles les chiffres encore inconnus.
+2. **Examinez le résultat ensemble.** L’IA détaille les hypothèses, les formules avec vos montants et votre effort d’épargne. Elle peut comparer les régimes fiscaux compatibles ou simuler la revente.
+3. **Gardez le bilan.** Ouvrez le lien personnel fourni à la fin. Le bouton **Télécharger le PDF** enregistre les hypothèses, les calculs, les résultats année par année et l’échéancier complet du prêt. **Copier le détail pour mon IA** permet de poursuivre la discussion avec les chiffres calculés.
 
-L’assistant suit [le guide d’accompagnement](AGENTS.md), crée une fiche dans `mes-projets/` et vous montre les hypothèses. Un zéro signifie que le montant est effectivement nul. Une case inconnue reste ouverte. Les calculs s’exécutent localement avec **Python 3.10 ou plus**, sans installation de bibliothèques, compte sur le site ni clé API. Le service d’IA que vous choisissez applique ses propres modalités de traitement des conversations. Utilisez des montants anonymisés pour travailler dans le dépôt.
+Si votre assistant ne peut pas ouvrir un lien, l’accueil propose de copier tout le guide ou de le télécharger pour le joindre au chat. Vous pouvez également [saisir vos chiffres dans le navigateur](https://fmacfa.github.io/ma-rentabilite-ia/#saisie). Les calculs et la génération du PDF se font sur votre appareil. Le lien personnel contient les chiffres du dossier et peut être lu par toute personne à qui vous le communiquez.
 
-**Dans un chat qui lit des pièces jointes**, transmettez le [guide d’accompagnement](AGENTS.md), la [fiche vierge](modele.json) et les [règles fiscales](docs/fiscalite.md). Il pourra conduire l’entretien. Pour retrouver les résultats au centime, donnez-lui aussi accès aux fichiers Python ou joignez la sortie JSON calculée sur votre ordinateur.
+## Six projets à ouvrir
 
-## Ce qu’un premier calcul peut vous apprendre
-
-Lina, le cas fictif du guide, achète à 140 000 € et prévoit 1 050 € de loyer mensuel hors charges. Les frais, les travaux et le mobilier portent le coût d’acquisition à **171 000 €**. Avec 5 % de vacance, le rendement net d’exploitation atteint **5,26 %**. Les deux premiers mois sans loyer, le crédit et les impôts font pourtant ressortir un effort d’épargne moyen de **388,02 € par mois la première année**. [Dossier de Lina](exemples/lina.json) · [Calcul détaillé et hypothèses de revente](guide/01-calculs.md)
-
-Dans le [cas de location nue](exemples/location-nue.json), une réserve de travaux de 400 € pèse sur la trésorerie. Les dépenses fiscalement déductibles sont renseignées séparément. À l’année 1, avec une tranche marginale de 30 %, l’impôt et les prélèvements estimés atteignent **3 766,56 € au micro-foncier** et **2 077,76 € au réel**. Le loyer, les charges et le crédit sont identiques dans les deux simulations. L’option au réel engage en principe le foyer pendant trois ans. [Hypothèses fiscales et sources](docs/fiscalite.md)
-
-## Refaire les calculs
-
-Depuis le dossier du dépôt, lancez les commandes ci-dessous. Sous Windows, `py -3` peut remplacer `python3`.
-
-```sh
-python3 renta.py calculer exemples/lina.json
-python3 renta.py comparer exemples/location-nue.json
-python3 renta.py comparer exemples/location-meublee.json
-python3 renta.py sensibilite exemples/lina.json
-```
-
-| Besoin | Commande |
+| Projet | Ce qu’il permet de comprendre |
 | --- | --- |
-| Reprendre une fiche incomplète | `python3 renta.py questions mes-projets/projet.json` |
-| Obtenir les flux annuels et l’échéancier mensuel | `python3 renta.py calculer exemples/lina.json --echeancier --json` |
-| Comparer la fiscalité de la première année pour un même bien | `python3 renta.py comparer exemples/location-nue.json --json` |
-| Comparer deux dossiers ou deux modes de location | `python3 renta.py comparer exemples/location-nue.json exemples/location-meublee.json` |
-| Vérifier les résultats de référence | `python3 -m unittest discover -s tests` |
-
-Pour commencer votre propre dossier, copiez `modele.json` dans `mes-projets/`. Ce répertoire est ignoré par Git. En ligne de commande, toutes les actions acceptent `--json`. La commande `questions` peut également lire un brouillon depuis l’entrée standard avec `-`.
+| [Le projet de Lina](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=lina) | Un rendement net de 5,26 % peut coexister avec 388,02 € d’effort d’épargne mensuel la première année. |
+| [Location nue](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=location-nue) | Comparer micro-foncier et réel avec le même loyer et le même crédit. |
+| [Location meublée](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=location-meublee) | Suivre les charges récupérées et les amortissements au réel. |
+| [Meublé de tourisme](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=tourisme) | Passer du prix par nuit aux recettes annuelles. |
+| [SCI à l’IS](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=sci-is) | Distinguer la trésorerie de la société et le dividende reçu par l’associé. |
+| [Jeanbrun](https://fmacfa.github.io/ma-rentabilite-ia/#exemple=jeanbrun) | Retrouver l’assiette, le taux, le prorata et la déduction annuelle. |
 
 ## Ressources
 
-| Pour… | Ouvrir… |
-| --- | --- |
-| Comprendre le rendement, le cash-flow, le point mort, le TRI ou la VAN | [Formules et conventions](docs/calculs.md) |
-| Savoir quel chiffre renseigner et dans quelle unité | [Dictionnaire du dossier](docs/saisie.md) |
-| Comparer location nue, meublée, SCI ou dispositif Jeanbrun | [Fiscalité française, version du 23 novembre 2026](docs/fiscalite.md) |
-| Retrouver le guide et ses huit fiches pratiques | [Guide de ma-rentabilite.fr](guide/README.md) |
-| Chercher un exemple sur le crédit, la copropriété, le DPE ou la revente | [99 articles et 23 jeux de formules du blog](articles/README.md) |
-| Tester d’autres situations | [Meublé de tourisme](exemples/tourisme.json) · [SCI à l’IS](exemples/sci-is.json) · [Jeanbrun](exemples/jeanbrun.json) |
+- [Tous les calculs, leurs formules et leurs exemples](https://fmacfa.github.io/ma-rentabilite-ia/calculs.html)
+- [Guide à lire par votre IA](assistant.md)
+- [Fiscalité française et sources officielles, version du 23 novembre 2026](docs/fiscalite.md)
+- [Guide de ma-rentabilite.fr et ses huit fiches pratiques](guide/README.md)
+- [99 articles du blog et formules de 23 calculateurs historiques](articles/README.md)
 
-Le guide et les articles proviennent de ma-rentabilite.fr. Vous pouvez télécharger ce dépôt et l’utiliser avec l’assistant de votre choix pour effectuer vos propres simulations. Les exemples du blog gardent leur date de publication. Le moteur et la fiche fiscale précisent les règles retenues pour les calculs actuels.
+Le guide et les articles proviennent de ma-rentabilite.fr. Vous pouvez télécharger ce dépôt et l’utiliser avec l’assistant de votre choix pour vos simulations. Une fois l’archive décompressée, un double-clic sur `index.html` ouvre aussi le simulateur et son export PDF hors ligne.

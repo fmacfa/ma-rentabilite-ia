@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f8f3" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Retrouvez les formules, les exemples chiffrés et 23 articles de calcul pour étudier un investissement locatif en France, du prix d’achat à la revente."
+    />
+    <title>Tous les calculs de rentabilité locative — Ma Rentabilité</title>
+    <link rel="stylesheet" href="web/interface.css" />
+    <link rel="stylesheet" href="web/calculs.css" />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="top">
+      <div class="wrap nav">
+        <a class="brand" href="index.html"
+          ><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>Ma
+          Rentabilité</a
+        >
+        <nav aria-label="Navigation principale">
+          <a href="index.html">Accueil</a
+          ><a href="calculs.html" aria-current="page">Tous les calculs</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap catalogue" id="contenu" tabindex="-1">
+      <div class="cat-intro">
+        <h1>Tous les calculs</h1>
+        <p>
+          Combien apporter à l’achat&nbsp;? Que restera-t-il chaque mois&nbsp;?
+          Suivez le projet de Lina pour refaire les calculs, puis ouvrez le cas
+          qui ressemble au vôtre.
+        </p>
+        <div class="cat-actions">
+          <a class="btn primary" href="index.html#exemple=lina"
+            >Ouvrir le bilan de Lina</a
+          ><a class="text-link" href="index.html"
+            >Étudier mon projet avec mon IA</a
+          >
+        </div>
+      </div>
+      <div class="cat-layout">
+        <nav class="cat-index" aria-labelledby="sommaire">
+          <h2 id="sommaire">Sommaire</h2>
+          <ul>
+            <li><a href="#achat">Achat et apport</a></li>
+            <li><a href="#credit">Crédit et assurance</a></li>
+            <li><a href="#location">Loyers et charges</a></li>
+            <li><a href="#tresorerie">Rendements et trésorerie</a></li>
+            <li><a href="#fiscalite">Fiscalité des loyers</a></li>
+            <li><a href="#revente">Revente et plus-value</a></li>
+            <li><a href="#performance">VAN, TRI et fonds propres</a></li>
+            <li><a href="#scenarios">Six projets chiffrés</a></li>
+            <li><a href="#articles">Les 23 calculateurs du blog</a></li>
+          </ul>
+        </nav>
+        <div class="cat-body">
+          <section id="achat" aria-labelledby="titre-achat">
+            <h2 id="titre-achat">Achat et apport</h2>
+            <p>
+              Lina achète un appartement à 140&nbsp;000&nbsp;€. Elle emprunte
+              pour couvrir une partie du prix, des travaux et du mobilier. Son
+              premier calcul est le virement à prévoir pour boucler l’achat.
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Coût d’acquisition</dt>
+              <dd>
+                Prix + honoraires d’agence à ajouter + frais d’acte + travaux +
+                mobilier + autres frais initiaux.<span class="operation"
+                  >140&nbsp;000 + 0 + 11&nbsp;200 + 14&nbsp;000 + 4&nbsp;000 +
+                  1&nbsp;800 = <strong>171&nbsp;000&nbsp;€</strong></span
+                >
+              </dd>
+              <dt>Coût initial avec la banque</dt>
+              <dd>
+                Acquisition + garantie + frais de dossier.<span
+                  class="operation"
+                  >171&nbsp;000 + 1&nbsp;500 + 800 =
+                  <strong>173&nbsp;300&nbsp;€</strong></span
+                >
+              </dd>
+              <dt>Fonds propres à verser</dt>
+              <dd>
+                Coût initial avec la banque − emprunt.<span class="operation"
+                  >173&nbsp;300 − 145&nbsp;000 =
+                  <strong>28&nbsp;300&nbsp;€</strong></span
+                >
+              </dd>
+            </dl>
+            <p>
+              Le compromis précise si les honoraires d’agence sont déjà compris
+              dans le prix. Le décompte du notaire donne les frais d’acte à
+              retenir pour le bien.
+            </p>
+            <details>
+              <summary>
+                Estimer les frais d’acte et les émoluments par tranche
+              </summary>
+              <p>
+                À défaut de décompte, le simulateur propose une provision de
+                7,5&nbsp;% du prix en ancien ou de 2,5&nbsp;% en neuf lorsque
+                les droits réduits s’appliquent. Pour un achat classique dans
+                l’ancien, le taux départemental permet d’affiner l’estimation.
+                Voici un calcul indépendant du montant prévu par Lina.
+              </p>
+              <div class="cat-table">
+                <table>
+                  <caption>
+                    Émoluments hors taxe pour un prix de 140&nbsp;000&nbsp;€
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Part du prix</th>
+                      <th scope="col">Taux</th>
+                      <th scope="col">Montant HT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Premiers 6&nbsp;500&nbsp;€</th>
+                      <td>3,870&nbsp;%</td>
+                      <td>251,55&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        10&nbsp;500&nbsp;€ suivants, jusqu’à 17&nbsp;000&nbsp;€
+                      </th>
+                      <td>1,596&nbsp;%</td>
+                      <td>167,58&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        43&nbsp;000&nbsp;€ suivants, jusqu’à 60&nbsp;000&nbsp;€
+                      </th>
+                      <td>1,064&nbsp;%</td>
+                      <td>457,52&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        80&nbsp;000&nbsp;€ au-delà de 60&nbsp;000&nbsp;€
+                      </th>
+                      <td>0,799&nbsp;%</td>
+                      <td>639,20&nbsp;€</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Émoluments TTC = 1&nbsp;515,85 × 1,20 = 1&nbsp;819,02&nbsp;€.
+                Avec un taux départemental supposé de 5&nbsp;%, les taxes
+                estimées valent 140&nbsp;000 × (5&nbsp;% × 1,0237 + 1,2&nbsp;% +
+                0,1&nbsp;%) = 8&nbsp;985,90&nbsp;€. En ajoutant la provision du
+                simulateur de 900&nbsp;€ pour les débours, on obtient
+                <strong>11&nbsp;704,92&nbsp;€</strong>. Le département, le type
+                de vente et les frais réels peuvent modifier ce montant.
+              </p>
+              <p class="cat-source">
+                <a
+                  href="https://www.notaires.fr/fr/immobilier-fiscalite/financement/les-frais-dacquisition"
+                  >Notaires de France, frais d’acquisition</a
+                >
+                ·
+                <a
+                  href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041684370/2026-04-28"
+                  >Code de commerce, barème des émoluments</a
+                >
+              </p>
+            </details>
+          </section>
+          <section id="credit" aria-labelledby="titre-credit">
+            <h2 id="titre-credit">Crédit et assurance</h2>
+            <p>
+              Le prêt de Lina porte sur 145&nbsp;000&nbsp;€ à taux fixe de
+              3,5&nbsp;% sur vingt ans. Une mensualité comprend les intérêts et
+              le capital remboursé. L’assurance emprunteur s’y ajoute.
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Mensualité hors assurance</dt>
+              <dd>
+                Avec le capital <var>K</var>, le taux mensuel <var>i</var> et
+                <var>n</var> mensualités amortissables, <var>M</var> =
+                <var>K</var> × <var>i</var> / [1 − (1 +
+                <var>i</var>)<sup>−n</sup>]. À taux nul, <var>M</var> =
+                <var>K</var> / <var>n</var>.<span class="operation"
+                  >145&nbsp;000 × (0,035/12) / [1 − (1 +
+                  0,035/12)<sup>−240</sup>] ≈
+                  <strong>840,94&nbsp;€</strong></span
+                >
+              </dd>
+              <dt>Première échéance</dt>
+              <dd>
+                Intérêts = 145&nbsp;000 × 0,035 / 12 = 422,92&nbsp;€. Capital
+                remboursé = 418,02&nbsp;€. Nouveau solde =
+                <strong>144&nbsp;581,98&nbsp;€</strong>. Les intérêts du
+                deuxième mois portent sur ce solde.
+              </dd>
+              <dt>Assurance et annuité</dt>
+              <dd>
+                Prime fixe = 360 / 12 = 30&nbsp;€ par mois. Mensualité assurée =
+                <strong>870,94&nbsp;€</strong>. La somme des douze échéances
+                donne <strong>10&nbsp;451,30&nbsp;€</strong> en année 1. Les
+                calculs conservent les centimes non affichés.
+              </dd>
+              <dt>Coût du crédit à terme</dt>
+              <dd>
+                Intérêts courus + primes d’assurance + frais de banque sur la
+                durée complète.<span class="operation"
+                  >56&nbsp;825,98 + 7&nbsp;200 + 2&nbsp;300 =
+                  <strong>66&nbsp;325,98&nbsp;€</strong></span
+                >
+              </dd>
+            </dl>
+            <details>
+              <summary>
+                Différé, assurance sur le capital et durée restante
+              </summary>
+              <p>
+                Pendant un différé d’intérêts seuls, on paie intérêts et
+                assurance et le capital reste stable. Pendant un différé
+                capitalisé de <var>d</var> mois, l’assurance est payée et les
+                intérêts s’ajoutent au capital. Le nouveau solde est
+                <var>K</var> × (1 + <var>i</var>)<sup>d</sup>. Les mensualités
+                suivantes amortissent ce solde sur la durée totale moins les
+                mois de différé.
+              </p>
+              <p>
+                Sur 100&nbsp;000&nbsp;€ à 3,2&nbsp;%, trois mois d’intérêts
+                seuls coûtent environ 266,67&nbsp;€ chacun, hors assurance. Avec
+                capitalisation, le solde au bout de ces trois mois atteint
+                100&nbsp;000 × (1 + 0,032/12)<sup>3</sup> =
+                <strong>100&nbsp;802,14&nbsp;€</strong>.
+              </p>
+              <p>
+                Une assurance à 0,30&nbsp;% du capital initial coûte
+                100&nbsp;000 × 0,003 / 12 = 25&nbsp;€ par mois. Si le contrat
+                l’assoit sur le capital restant dû, un solde de
+                80&nbsp;000&nbsp;€ ramène la prime du mois à 20&nbsp;€. Un
+                forfait annuel se divise par douze.
+              </p>
+            </details>
+          </section>
+          <section id="location" aria-labelledby="titre-location">
+            <h2 id="titre-location">Loyers et charges</h2>
+            <p>
+              La vacance se répète au fil des relocations. Le délai initial
+              couvre les mois avant le premier loyer, par exemple pendant les
+              travaux. Lina prévoit les deux.
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Longue durée</dt>
+              <dd>
+                Loyer mensuel hors charges × 12 × (1 − taux de vacance).<span
+                  class="operation"
+                  >1&nbsp;050 × 12 × 95&nbsp;% =
+                  <strong>11&nbsp;970&nbsp;€</strong> en année pleine</span
+                >
+              </dd>
+              <dt>Location à la nuit</dt>
+              <dd>
+                Prix par nuit × 365 × taux d’occupation. Le nombre de nuits est
+                une moyenne de projection.<span class="operation"
+                  >85 × 365 × 45&nbsp;% =
+                  <strong>13&nbsp;961,25&nbsp;€</strong> pour le meublé de
+                  tourisme</span
+                >
+              </dd>
+              <dt>Annexes et gestion</dt>
+              <dd>
+                Les recettes annexes mensuelles, par exemple un parking loué
+                séparément, se multiplient par douze. La gestion porte sur les
+                loyers effectivement encaissés hors annexes. Dans le cas
+                touristique, 13&nbsp;961,25 × 18&nbsp;% =
+                <strong>2&nbsp;513,03&nbsp;€</strong>.
+              </dd>
+              <dt>Mois ouverts</dt>
+              <dd>
+                Année 1 de Lina avec deux mois de travaux, 11&nbsp;970 × 10 / 12
+                = <strong>9&nbsp;975&nbsp;€</strong>. On applique le même
+                prorata aux annexes, à la gestion et aux charges refacturées.
+                Les charges fixes du bailleur courent pendant les travaux.
+              </dd>
+              <dt>Dépenses du bailleur</dt>
+              <dd>
+                Taxe foncière nette des sommes récupérées + copropriété à sa
+                charge + assurance propriétaire + entretien et autres
+                postes.<span class="operation"
+                  >1&nbsp;200 + 900 + 180 + 700 =
+                  <strong>2&nbsp;980&nbsp;€</strong> pour Lina</span
+                >
+              </dd>
+              <dt>Net d’exploitation</dt>
+              <dd>
+                Loyers et annexes − gestion − dépenses du propriétaire. Une
+                charge récupérée à prix coûtant entraîne une entrée et une
+                sortie égales. En meublé, elle compte aussi dans les recettes
+                fiscales.<span class="operation"
+                  >9&nbsp;975 − 0 − 2&nbsp;980 =
+                  <strong>6&nbsp;995&nbsp;€</strong> en année 1. À douze mois
+                  ouverts, 11&nbsp;970 − 2&nbsp;980 =
+                  <strong>8&nbsp;990&nbsp;€</strong>.</span
+                >
+              </dd>
+            </dl>
+            <details>
+              <summary>
+                Projeter les années suivantes avec des hausses différentes
+              </summary>
+              <p>
+                En année <var>t</var>, les recettes et la gestion sont
+                multipliées par (1 + hausse annuelle des loyers)<sup>t−1</sup> ×
+                mois ouverts / 12. Les charges fixes suivent leur propre indice
+                (1 + hausse annuelle des charges)<sup>t−1</sup>. Chez Lina, avec
+                +1,5&nbsp;% et +2&nbsp;%, le net de la deuxième année vaut
+                11&nbsp;970 × 1,015 − 2&nbsp;980 × 1,02 =
+                <strong>9&nbsp;109,95&nbsp;€</strong>. Une indexation est une
+                hypothèse à confronter au bail, à l’indice et aux règles
+                locales.
+                <a
+                  href="https://www.service-public.gouv.fr/particuliers/vosdroits/F13723"
+                  >Service Public, révision du loyer</a
+                >
+              </p>
+            </details>
+          </section>
+          <section id="tresorerie" aria-labelledby="titre-tresorerie">
+            <h2 id="titre-tresorerie">Rendements et trésorerie</h2>
+            <p>
+              Les trois premiers rendements décrivent le bien en année pleine,
+              indépendamment de sa dette. Pour budgéter le premier virement
+              mensuel, Lina repart des dix mois effectivement ouverts.
+            </p>
+            <p>
+              Pour un premier tri à partir d’une annonce, loyer mensuel hors
+              charges × 12 / prix affiché donne un brut rapide. Chez Lina,
+              1&nbsp;050 × 12 / 140&nbsp;000 =
+              <strong>9,00&nbsp;% sur le prix seul</strong>. Dès que les travaux
+              et frais sont connus, les rendements ci-dessous rapportent le
+              loyer au coût complet d’acquisition.
+            </p>
+            <div class="cat-table">
+              <table>
+                <caption>
+                  Le bien de Lina, pour 171&nbsp;000&nbsp;€ investis dans
+                  l’acquisition
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Indicateur</th>
+                    <th scope="col">Calcul</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Rendement brut théorique</th>
+                    <td>
+                      Loyers à pleine occupation et annexes / acquisition =
+                      12&nbsp;600 / 171&nbsp;000 = <strong>7,37&nbsp;%</strong>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Rendement brut effectif</th>
+                    <td>
+                      Recettes avec vacance / acquisition = 11&nbsp;970 /
+                      171&nbsp;000 = <strong>7,00&nbsp;%</strong>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Rendement net d’exploitation</th>
+                    <td>
+                      Net stabilisé / acquisition = 8&nbsp;990 / 171&nbsp;000 =
+                      <strong>5,26&nbsp;%</strong>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Rendement après impôt, année 1</th>
+                    <td>
+                      (Net d’exploitation de l’année − impôt locatif) /
+                      acquisition = (6&nbsp;995 − 1&nbsp;200) / 171&nbsp;000 =
+                      <strong>3,39&nbsp;%</strong>.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <dl class="calcul-lignes">
+              <dt>Trésorerie avant impôt</dt>
+              <dd>
+                Net d’exploitation − dette annuelle assurance comprise.<span
+                  class="operation"
+                  >6&nbsp;995 − 10&nbsp;451,30 =
+                  <strong>−3&nbsp;456,30&nbsp;€</strong></span
+                >
+              </dd>
+              <dt>Trésorerie après impôt</dt>
+              <dd>
+                Trésorerie avant impôt − impôt locatif. Avec 1&nbsp;200&nbsp;€
+                d’impôt supposé, Lina verse
+                <strong>388,02&nbsp;€ par mois en moyenne</strong> depuis son
+                épargne.<span class="operation"
+                  >(−3&nbsp;456,30 − 1&nbsp;200) / 12 = −388,02&nbsp;€</span
+                >
+              </dd>
+              <dt>Rendement sur l’apport (cash-on-cash)</dt>
+              <dd>
+                Trésorerie de l’année 1 / fonds propres initiaux =
+                −4&nbsp;656,30 / 28&nbsp;300 = <strong>−16,45&nbsp;%</strong>.
+                Cet indicateur reste indéfini avec un apport nul.
+              </dd>
+              <dt>Couverture de la dette (DSCR)</dt>
+              <dd>
+                Net d’exploitation / annuité assurée = 6&nbsp;995 /
+                10&nbsp;451,30 = <strong>0,67</strong>. Les loyers nets couvrent
+                environ 67&nbsp;% des échéances de l’année. Le ratio suppose un
+                emprunt.
+              </dd>
+              <dt>Recette mensuelle au point mort</dt>
+              <dd>
+                (Charges + gestion + impôt retenu + dette assurée) / mois
+                ouverts. Avec la gestion et l’impôt du scénario, (2&nbsp;980 + 0
+                + 1&nbsp;200 + 10&nbsp;451,30) / 10 =
+                <strong>1&nbsp;463,13&nbsp;€</strong> à encaisser par mois
+                ouvert. Sans mois ouvert, le point mort mensuel est indéfini.
+              </dd>
+            </dl>
+            <details id="sensibilite">
+              <summary>
+                Tester un prix ou un loyer inférieur de 10&nbsp;% ou de
+                20&nbsp;%
+              </summary>
+              <p>
+                Chaque variante modifie une seule donnée. Pour un prix de départ
+                de 140&nbsp;000&nbsp;€, les prix testés sont 126&nbsp;000 et
+                112&nbsp;000&nbsp;€. Pour un loyer de 1&nbsp;050&nbsp;€, les
+                loyers testés sont 945 et 840&nbsp;€ par mois. En tourisme, la
+                baisse porte sur le tarif par nuit. Le montant emprunté, le taux
+                de vacance ou d’occupation, le prix de sortie et les autres
+                hypothèses saisis sont conservés. Les montants qui en dépendent
+                sont recalculés.
+              </p>
+              <div class="cat-table">
+                <table>
+                  <caption>
+                    Effet sur le dossier de Lina, emprunt de 145&nbsp;000&nbsp;€
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Variante</th>
+                      <th scope="col">Rendement net</th>
+                      <th scope="col">Effort mensuel en année 1</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Projet initial</th>
+                      <td>5,26&nbsp;%</td>
+                      <td>388,02&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Prix d’achat −10&nbsp;%</th>
+                      <td>5,73&nbsp;%</td>
+                      <td>388,02&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Prix d’achat −20&nbsp;%</th>
+                      <td>6,29&nbsp;%</td>
+                      <td>388,02&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Loyer −10&nbsp;%</th>
+                      <td>4,56&nbsp;%</td>
+                      <td>471,15&nbsp;€</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Loyer −20&nbsp;%</th>
+                      <td>3,86&nbsp;%</td>
+                      <td>554,27&nbsp;€</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                À prix réduit de 10&nbsp;%, les frais d’acte saisis en euros et
+                l’impôt supposé de Lina gardent leur montant. Son apport descend
+                à 14&nbsp;300&nbsp;€ et son rendement devient 8&nbsp;990 /
+                157&nbsp;000 = 5,73&nbsp;%. Une variante peut sortir du
+                périmètre, par exemple si le crédit saisi dépasse le nouveau
+                coût du projet. On peut alors modifier le financement pour
+                étudier cette autre hypothèse.
+              </p>
+            </details>
+          </section>
+          <section id="fiscalite" aria-labelledby="titre-fiscalite">
+            <h2 id="titre-fiscalite">Fiscalité des loyers</h2>
+            <p>
+              Repères français pour les revenus 2026, vérifiés le
+              <time datetime="2026-11-23">23 novembre 2026</time>. Le bail, la
+              détention, les autres recettes du foyer ou de l’activité, la
+              résidence fiscale, la protection sociale et une option déjà
+              exercée déterminent les régimes accessibles. Les projections
+              conservent les règles et taux retenus.
+            </p>
+            <nav class="cat-local" aria-label="Régimes et calculs fiscaux">
+              <a href="#impot-personnel">Impôt personnel</a
+              ><a href="#nue">Location nue</a
+              ><a href="#meublee">Location meublée</a><a href="#sci">SCI</a
+              ><a href="#jeanbrun">Jeanbrun</a
+              ><a href="#impot-connu">Impôt déjà chiffré</a>
+            </nav>
+            <h3 id="impot-personnel">
+              De la base imposable à l’impôt personnel
+            </h3>
+            <p>
+              En première estimation, impôt locatif = base imposable × (tranche
+              marginale d’impôt sur le revenu + taux de prélèvements sociaux).
+              Pour un bailleur résident relevant des prélèvements sur les
+              revenus du patrimoine, les taux intégrés sont de
+              <strong>17,2&nbsp;% en location nue</strong> et
+              <strong>18,6&nbsp;% en meublé</strong>. Sur 1&nbsp;000&nbsp;€
+              imposables en location nue à la tranche de 30&nbsp;%, le coût
+              estimé est 300 + 172 = <strong>472&nbsp;€</strong>.
+              <a
+                href="https://www.impots.gouv.fr/particulier/questions/je-donne-un-bien-en-location-dois-je-payer-des-prelevements-sociaux"
+                >DGFiP, prélèvements sociaux des bailleurs</a
+              >
+            </p>
+            <details>
+              <summary>Quand le revenu traverse deux tranches</summary>
+              <p>
+                L’option au barème indicatif calcule l’impôt brut du foyer avec
+                les loyers, puis retranche l’impôt brut sans les loyers. Pour
+                chaque calcul, on divise le revenu par le nombre de parts, on
+                taxe chaque tranche, puis on multiplie par les parts. Le barème
+                publié en 2026 pour les <strong>revenus 2025</strong> sert ici
+                d’hypothèse comparative.
+              </p>
+              <p>
+                Par part, les taux successifs sont 0&nbsp;% jusqu’à
+                11&nbsp;600&nbsp;€, 11&nbsp;% jusqu’à 29&nbsp;579&nbsp;€,
+                30&nbsp;% jusqu’à 84&nbsp;577&nbsp;€, 41&nbsp;% jusqu’à
+                181&nbsp;917&nbsp;€, puis 45&nbsp;%. Pour une part,
+                29&nbsp;000&nbsp;€ de revenu et 3&nbsp;000&nbsp;€ de base
+                supplémentaire, le supplément d’IR brut est 579 × 11&nbsp;% +
+                2&nbsp;421 × 30&nbsp;% = <strong>789,99&nbsp;€</strong>. En
+                location nue, les prélèvements sociaux ajoutent 3&nbsp;000 ×
+                17,2&nbsp;% = 516&nbsp;€. La décote, le plafonnement des parts
+                et les crédits d’impôt relèvent du calcul complet du foyer.
+                <a
+                  href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1419"
+                  >Service Public, barème de l’impôt sur le revenu</a
+                >
+              </p>
+            </details>
+            <h3 id="nue">Location nue, micro-foncier et réel</h3>
+            <p>
+              Dans le
+              <a href="index.html#exemple=location-nue"
+                >projet de location nue</a
+              >, le loyer encaissé atteint 11&nbsp;400&nbsp;€ par an. Le foyer
+              n’a pas d’autres loyers et peut comparer les deux régimes pour une
+              tranche marginale de 30&nbsp;%.
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Micro-foncier</dt>
+              <dd>
+                Jusqu’à 15&nbsp;000&nbsp;€ de recettes brutes foncières
+                annuelles du foyer, sous conditions, l’abattement est de
+                30&nbsp;%.<span class="operation"
+                  >11&nbsp;400 × 70&nbsp;% = 7&nbsp;980&nbsp;€ de base. Impôt
+                  estimé = 7&nbsp;980 × 47,2&nbsp;% =
+                  <strong>3&nbsp;766,56&nbsp;€</strong>.</span
+                >
+              </dd>
+              <dt>Réel foncier</dt>
+              <dd>
+                Recettes − charges fiscalement déductibles − gestion − intérêts
+                payés − assurance d’emprunt − autres déductions admises. Une
+                réserve de 400&nbsp;€ pour de futurs travaux figure dans le
+                budget de trésorerie. Les dépenses déductibles justifiées
+                s’élèvent ici à 2&nbsp;000&nbsp;€.<span class="operation"
+                  >11&nbsp;400 − 2&nbsp;000 − 684 − 4&nbsp;013,97 − 300 ≈
+                  4&nbsp;402,03&nbsp;€ de base. Impôt estimé =
+                  <strong>2&nbsp;077,76&nbsp;€</strong>.</span
+                >
+              </dd>
+            </dl>
+            <p>
+              L’effort mensuel est de <strong>335,68&nbsp;€ au micro</strong> et
+              de <strong>194,95&nbsp;€ au réel</strong> pour cette première
+              année. Une option volontaire pour le réel engage en principe trois
+              ans.
+              <a
+                href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053544766/2026-11-01"
+                >CGI, article 32</a
+              >
+              ·
+              <a
+                href="https://www.impots.gouv.fr/particulier/location-vide-de-meubles"
+                >DGFiP, location vide</a
+              >
+            </p>
+            <details>
+              <summary>
+                Lorsque les déductions foncières dépassent les recettes
+              </summary>
+              <p>
+                Le déficit lié aux intérêts excédant les recettes est reportable
+                sur les revenus fonciers. La fraction due aux autres dépenses
+                peut, sous conditions, s’imputer sur le revenu global dans la
+                limite ordinaire de 10&nbsp;700&nbsp;€. Le surplus et la part
+                liée aux intérêts peuvent se reporter pendant dix ans. La
+                simulation affiche l’imputation globale possible séparément et
+                démarre avec des reports nuls.
+              </p>
+              <p>
+                Exemple indépendant avec 8&nbsp;000&nbsp;€ de recettes,
+                10&nbsp;000&nbsp;€ d’intérêts et 12&nbsp;000&nbsp;€ d’autres
+                charges déductibles. Le déficit de 14&nbsp;000&nbsp;€ comprend
+                2&nbsp;000&nbsp;€ liés aux intérêts. Sur les 12&nbsp;000&nbsp;€
+                restants, 10&nbsp;700&nbsp;€ sont imputables sur le revenu
+                global si les conditions sont remplies, et 1&nbsp;300&nbsp;€
+                s’ajoutent aux 2&nbsp;000&nbsp;€ reportables. Le maintien de la
+                location et certains travaux énergétiques relèvent de conditions
+                particulières.
+                <a
+                  href="https://bofip.impots.gouv.fr/bofip/4142-PGP.html/identifiant%3DBOI-RFPI-BASE-30-20-20250916"
+                  >BOFiP, imputation des déficits fonciers</a
+                >
+              </p>
+            </details>
+            <h3 id="meublee">Location meublée, micro-BIC et LMNP réel</h3>
+            <p>
+              Les bénéfices industriels et commerciaux (BIC) tiennent compte des
+              loyers et des charges refacturées. Pour les revenus 2026, on
+              compare au seuil les recettes de l’année précédente ou de
+              l’avant-dernière année. Une activité homogène doit respecter le
+              seuil sur au moins l’une des deux années, sous réserve des autres
+              conditions.
+            </p>
+            <div class="cat-table">
+              <table>
+                <caption>
+                  Seuils et abattements du micro-BIC en 2026
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Type de location</th>
+                    <th scope="col">Seuil</th>
+                    <th scope="col">Abattement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Meublé de longue durée</th>
+                    <td>83&nbsp;600&nbsp;€</td>
+                    <td>50&nbsp;%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tourisme classé</th>
+                    <td>83&nbsp;600&nbsp;€</td>
+                    <td>50&nbsp;%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tourisme non classé</th>
+                    <td>15&nbsp;000&nbsp;€</td>
+                    <td>30&nbsp;%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              L’abattement minimal de 305&nbsp;€ s’applique une fois à
+              l’activité. Pour des recettes <var>R</var>, la base est le maximum
+              entre zéro et <var>R</var> − max(305&nbsp;€, <var>R</var> ×
+              abattement). S’il existe d’autres biens, la base supplémentaire du
+              projet est la différence entre la base avec et sans ce bien.
+              <a
+                href="https://bofip.impots.gouv.fr/bofip/14069-PGP.html/identifiant%3DBOI-BAREME-000044-20260819"
+                >BOFiP, seuils 2026–2028</a
+              >
+              ·
+              <a
+                href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006302439/2026-07-26"
+                >CGI, article 50-0</a
+              >
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Meublé de longue durée au micro</dt>
+              <dd>
+                Recettes = 9&nbsp;792&nbsp;€ de loyers + 600&nbsp;€ de charges
+                refacturées. Base = 10&nbsp;392 × 50&nbsp;% = 5&nbsp;196&nbsp;€.
+                À la tranche de 30&nbsp;%, impôt estimé = 5&nbsp;196 ×
+                48,6&nbsp;% = <strong>2&nbsp;525,26&nbsp;€</strong>.
+              </dd>
+              <dt>Tourisme non classé au micro</dt>
+              <dd>
+                Recettes = 13&nbsp;961,25&nbsp;€. Base = 13&nbsp;961,25 ×
+                70&nbsp;%. À la tranche de 11&nbsp;%, impôt estimé =
+                13&nbsp;961,25 × 70&nbsp;% × (11&nbsp;% + 18,6&nbsp;%) =
+                <strong>2&nbsp;892,77&nbsp;€</strong>.
+              </dd>
+              <dt>Loueur en meublé non professionnel (LMNP) au réel</dt>
+              <dd>
+                Recettes − dépenses déductibles − intérêts payés − assurance −
+                amortissement admis. Le terrain est exclu du plan
+                d’amortissement. Dans le meublé de longue durée, les 600&nbsp;€
+                de charges refacturées apparaissent de chaque côté.<span
+                  class="operation"
+                  >10&nbsp;392 − 2&nbsp;600 − 3&nbsp;463,09 − 3&nbsp;100 =
+                  1&nbsp;228,91&nbsp;€ de base. Impôt estimé =
+                  <strong>597,25&nbsp;€</strong>.</span
+                >
+              </dd>
+            </dl>
+            <p>
+              En LMNP, l’amortissement admis est plafonné par le bénéfice
+              disponible avant amortissement. Avec 2&nbsp;000&nbsp;€ disponibles
+              et une dotation de 3&nbsp;100&nbsp;€, 2&nbsp;000&nbsp;€ sont
+              déduits et 1&nbsp;100&nbsp;€ sont différés. Les amortissements
+              différés et les déficits d’exploitation suivent deux stocks
+              distincts. Pour ces déficits, le report sur les bénéfices de même
+              activité est limité à dix ans.
+              <a
+                href="https://www.impots.gouv.fr/particulier/les-regimes-dimposition"
+                >DGFiP, régimes du loueur en meublé</a
+              >
+            </p>
+            <p>
+              Au-delà de 23&nbsp;000&nbsp;€ de recettes, le régime social du
+              tourisme demande un calcul de cotisations. En longue durée, le
+              passage à la location meublée professionnelle dépend également des
+              autres revenus d’activité du foyer. L’affiliation à un régime
+              d’assurance maladie étranger peut aussi changer le calcul.
+              <a
+                href="https://www.service-public.gouv.fr/particuliers/vosdroits/F34102"
+                >Service Public, cotisations et statut du loueur</a
+              >
+            </p>
+            <h3 id="sci">
+              SCI à l’impôt sur le revenu ou à l’impôt sur les sociétés
+            </h3>
+            <p>
+              En SCI à l’IR louant nu, le dossier d’un associé porte sur sa
+              quote-part du prix, de la dette, des loyers et des charges. Un
+              bénéfice foncier de 10&nbsp;000&nbsp;€ pour une participation de
+              40&nbsp;% donne 4&nbsp;000&nbsp;€ imposables pour l’associé, soit
+              4&nbsp;000 × 47,2&nbsp;% = <strong>1&nbsp;888&nbsp;€</strong> sous
+              les hypothèses précédentes. L’accès au micro-foncier en présence
+              d’une SCI dépend notamment de la détention directe d’un bien nu.
+              <a
+                href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000053544766/2026-11-01"
+                >CGI, article 32</a
+              >
+            </p>
+            <p>
+              En SCI à l’IS, le bénéfice de la société tient compte des dépenses
+              déductibles, des frais d’emprunt et des amortissements. L’IS vaut
+              25&nbsp;% au taux normal. Si les conditions du taux réduit sont
+              réunies, il vaut 15&nbsp;% sur les premiers 42&nbsp;500&nbsp;€ de
+              bénéfice d’un exercice de douze mois, puis 25&nbsp;%.
+              <a
+                href="https://entreprendre.service-public.gouv.fr/vosdroits/F23575"
+                >Service Public Entreprendre, taux de l’IS</a
+              >
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Résultat et IS de la société</dt>
+              <dd>
+                11&nbsp;059,20 de loyers − 2&nbsp;100 de charges − 3&nbsp;800
+                d’amortissements = 5&nbsp;159,20&nbsp;€ de bénéfice. IS à
+                15&nbsp;% = <strong>773,88&nbsp;€</strong>. La société conserve
+                11&nbsp;059,20 − 2&nbsp;100 − 773,88 =
+                <strong>8&nbsp;185,32&nbsp;€</strong> de trésorerie avant
+                dividende.
+              </dd>
+              <dt>Distribution à l’associé</dt>
+              <dd>
+                Si la société distribue 2&nbsp;000&nbsp;€, il lui reste
+                6&nbsp;185,32&nbsp;€. Pour un associé résident au prélèvement
+                forfaitaire unique ordinaire, 2&nbsp;000 × 31,4&nbsp;% =
+                628&nbsp;€ d’impôt et <strong>1&nbsp;372&nbsp;€</strong> nets
+                reçus.
+                <a
+                  href="https://entreprendre.service-public.gouv.fr/vosdroits/F32963"
+                  >Service Public Entreprendre, fiscalité des dividendes</a
+                >
+              </dd>
+            </dl>
+            <p>
+              Dans la projection ordinaire à l’IS, un déficit se reporte sur des
+              bénéfices ultérieurs. L’imputation annuelle est plafonnée à
+              1&nbsp;million d’euros, majoré de 50&nbsp;% du bénéfice dépassant
+              ce seuil. Une vente par la SCI part de la valeur nette comptable
+              pour déterminer le résultat de cession. L’impôt de cession chiffré
+              pour la société se renseigne dans le bilan.
+              <a
+                href="https://www.impots.gouv.fr/sites/default/files/formulaires/2065-sd/2026/2065-sd_5381.pdf"
+                >DGFiP, déclaration d’IS 2026</a
+              >
+            </p>
+            <h3 id="jeanbrun">Déduction Jeanbrun en location nue</h3>
+            <p>
+              Le dispositif Relance logement vise certaines opérations réalisées
+              du 21 février 2026 au 31 décembre 2028, en logement collectif neuf
+              ou ancien réhabilité. La location nue à titre de résidence
+              principale s’accompagne d’un engagement de neuf ans. Il faut
+              vérifier dates, zone, loyer, ressources du locataire et, en
+              ancien, les travaux exigés, dont le seuil de 30&nbsp;% lorsqu’il
+              s’applique.
+              <a
+                href="https://www.service-public.gouv.fr/particuliers/vosdroits/F39735"
+                >Service Public, éligibilité et plafonds</a
+              >
+            </p>
+            <p>
+              Déduction annuelle = le minimum entre l’assiette éligible hors
+              terrain × taux × fraction d’année, le plafond restant du foyer et
+              l’assiette restant à amortir. La part de terrain est fixée à
+              20&nbsp;%. Dans l’ordre intermédiaire, social, très social, les
+              taux sont 3,5&nbsp;%, 4,5&nbsp;%, 5,5&nbsp;% en neuf et 3&nbsp;%,
+              3,5&nbsp;%, 4&nbsp;% en ancien éligible. Le plafond de
+              8&nbsp;000&nbsp;€ peut atteindre 10&nbsp;000 ou 12&nbsp;000&nbsp;€
+              sous conditions.
+              <a
+                href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053544761/2026-06-07"
+                >CGI, article 31, I-1° i et j</a
+              >
+            </p>
+            <p class="cat-exemple">
+              <strong>Projet neuf à loyer intermédiaire.</strong> Une assiette
+              de 220&nbsp;000 × 80&nbsp;% = 176&nbsp;000&nbsp;€, dix mois la
+              première année et un plafond disponible de 8&nbsp;000&nbsp;€
+              donnent une déduction de 176&nbsp;000 × 3,5&nbsp;% × 10 / 12 =
+              5&nbsp;133,33&nbsp;€. La base foncière vaut 7&nbsp;800 −
+              2&nbsp;050 − 5&nbsp;133,33 = 616,67&nbsp;€. À 47,2&nbsp;%, l’impôt
+              de l’année est estimé à <strong>291,07&nbsp;€</strong>.
+            </p>
+            <h3 id="impot-connu">Impôt déjà chiffré ou calcul avant impôt</h3>
+            <p>
+              Un montant annuel documenté peut servir pour un cas particulier.
+              Lina suppose 1&nbsp;200&nbsp;€ en année 1. Ce montant peut rester
+              constant ou évoluer à partir de l’année 2 en proportion du net
+              d’exploitation, sur une référence stabilisée positive. Dans son
+              scénario, 1&nbsp;200 × 9&nbsp;109,95 / 8&nbsp;990 =
+              <strong>1&nbsp;216,01&nbsp;€</strong> en année 2. Si l’impôt est
+              inconnu, le bilan peut présenter le flux avant impôt en laissant
+              le résultat après impôt à compléter.
+            </p>
+          </section>
+          <section id="revente" aria-labelledby="titre-revente">
+            <h2 id="titre-revente">Revente et plus-value</h2>
+            <p>
+              Lina vend au bout de dix ans, après la dernière échéance de
+              l’année. L’argent effectivement disponible à cette date entre dans
+              le calcul du rendement sur la durée.
+            </p>
+            <dl class="calcul-lignes">
+              <dt>Produit net de la vente</dt>
+              <dd>
+                Prix de vente − frais payés par le vendeur − capital restant dû
+                − indemnité de remboursement anticipé − impôt de cession. Le
+                montant peut être négatif.<span class="operation"
+                  >190&nbsp;000 − 9&nbsp;500 − 85&nbsp;041,64 − 0 − 5&nbsp;000 =
+                  <strong>90&nbsp;458,36&nbsp;€</strong>.</span
+                >
+              </dd>
+              <dt>Indemnité de remboursement anticipé</dt>
+              <dd>
+                En cas de remboursement intégral, le plafond ordinaire est le
+                plus petit de six mois d’intérêts sur le capital remboursé et de
+                3&nbsp;% du capital restant dû. Pour Lina, min(85&nbsp;041,64 ×
+                3,5&nbsp;% / 2, 85&nbsp;041,64 × 3&nbsp;%) =
+                <strong>1&nbsp;488,23&nbsp;€</strong> de plafond. Son contrat
+                fictif prévoit 0&nbsp;€.
+                <a
+                  href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032807572/"
+                  >Code de la consommation, article R313-25</a
+                >
+              </dd>
+              <dt>Plus-value immobilière d’un particulier</dt>
+              <dd>
+                Plus-value brute retenue = maximum entre zéro et prix de cession
+                − frais de cession fiscalement admis − prix d’acquisition fiscal
+                majoré + amortissements à reprendre. Exonérations, forfaits
+                d’acquisition ou de travaux, quote-part et amortissements
+                déduits sont à vérifier avec le notaire. Le prix fiscal peut
+                différer du budget d’acquisition.
+              </dd>
+            </dl>
+            <p>
+              Pour certaines ventes d’immeubles loués en LMNP au réel à partir
+              du 15 février 2025, les amortissements admis en déduction sur
+              l’immeuble augmentent la plus-value. Des exceptions existent. Une
+              cession après une déduction Jeanbrun demande aussi de vérifier le
+              montant à reprendre. Le dossier accepte le montant de reprise
+              vérifié ou l’impôt de cession directement chiffré.
+              <a
+                href="https://www.impots.gouv.fr/particulier/questions/je-vends-un-bien-immobilier-donne-en-location-meublee-comment-se-calcule-la"
+                >DGFiP, cession d’un logement meublé</a
+              >
+              ·
+              <a
+                href="https://www.service-public.gouv.fr/particuliers/vosdroits/F39735"
+                >Service Public, dispositif Jeanbrun</a
+              >
+            </p>
+            <details>
+              <summary>Abattements par année de détention</summary>
+              <p>
+                On compte les années de détention entièrement révolues. L’impôt
+                d’un cédant ordinaire est égal à 19&nbsp;% de sa base d’impôt
+                sur le revenu (IR) + 17,2&nbsp;% de sa base de prélèvements
+                sociaux (PS) + l’éventuelle surtaxe. Chaque base est la
+                plus-value brute multipliée par 1 − son abattement cumulé.
+              </p>
+              <div class="cat-table">
+                <table>
+                  <caption>
+                    Abattement supplémentaire pour chaque année révolue
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Durée</th>
+                      <th scope="col">Pour l’IR</th>
+                      <th scope="col">Pour les PS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Jusqu’à cinq ans</th>
+                      <td>0&nbsp;%</td>
+                      <td>0&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6ᵉ à 21ᵉ année</th>
+                      <td>6&nbsp;% par an</td>
+                      <td>1,65&nbsp;% par an</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">22ᵉ année</th>
+                      <td>4&nbsp;% (exonération atteinte)</td>
+                      <td>1,60&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">23ᵉ à 30ᵉ année</th>
+                      <td>Exonération acquise</td>
+                      <td>9&nbsp;% par an (exonération à 30 ans)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                À dix ans révolus, pour une plus-value brute de
+                40&nbsp;000&nbsp;€, il y a cinq années d’abattement. La base IR
+                est 40&nbsp;000 × (1 − 5 × 6&nbsp;%) = 28&nbsp;000&nbsp;€. La
+                base PS est 40&nbsp;000 × (1 − 5 × 1,65&nbsp;%) =
+                36&nbsp;700&nbsp;€. Impôt total = 28&nbsp;000 × 19&nbsp;% +
+                36&nbsp;700 × 17,2&nbsp;% =
+                <strong>11&nbsp;632,40&nbsp;€</strong>.
+                <a
+                  href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10864"
+                  >Service Public, plus-value immobilière</a
+                >
+              </p>
+            </details>
+            <details>
+              <summary>
+                Surtaxe des plus-values immobilières élevées et lissage
+              </summary>
+              <p>
+                Dans le cas ordinaire d’un cédant unique, la surtaxe s’applique
+                lorsque la base IR après abattements dépasse 50&nbsp;000&nbsp;€.
+                Pour une base <var>B</var> dans une ligne du tableau, la surtaxe
+                = taux × <var>B</var> − coefficient × max(0, seuil bas +
+                10&nbsp;000 − <var>B</var>). Le lissage intervient sur les
+                premiers 10&nbsp;000&nbsp;€ de chaque ligne.
+              </p>
+              <div class="cat-table">
+                <table>
+                  <caption>
+                    Calcul sur la base IR du cédant
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Base IR, borne basse exclue</th>
+                      <th scope="col">Taux</th>
+                      <th scope="col">Coefficient de lissage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">50&nbsp;000 à 100&nbsp;000&nbsp;€</th>
+                      <td>2&nbsp;%</td>
+                      <td>5&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">100&nbsp;000 à 150&nbsp;000&nbsp;€</th>
+                      <td>3&nbsp;%</td>
+                      <td>10&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">150&nbsp;000 à 200&nbsp;000&nbsp;€</th>
+                      <td>4&nbsp;%</td>
+                      <td>15&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">200&nbsp;000 à 250&nbsp;000&nbsp;€</th>
+                      <td>5&nbsp;%</td>
+                      <td>20&nbsp;%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Au-delà de 250&nbsp;000&nbsp;€</th>
+                      <td>6&nbsp;%</td>
+                      <td>25&nbsp;%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Exemple avec 55&nbsp;000&nbsp;€ de plus-value imposable avant
+                tout abattement de durée. Surtaxe = 55&nbsp;000 × 2&nbsp;% −
+                (60&nbsp;000 − 55&nbsp;000) × 5&nbsp;% =
+                <strong>850&nbsp;€</strong>. Impôt total = 10&nbsp;450 d’IR +
+                9&nbsp;460 de PS + 850 = <strong>20&nbsp;760&nbsp;€</strong>.
+                <a
+                  href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048806252/2026-07-09"
+                  >CGI, article 1609 nonies G</a
+                >
+              </p>
+            </details>
+          </section>
+          <section id="performance" aria-labelledby="titre-performance">
+            <h2 id="titre-performance">VAN, TRI et fonds propres</h2>
+            <p>
+              Le premier flux est l’apport sorti de la poche de Lina. Chaque
+              flux suivant est la trésorerie d’une année. Le dernier reçoit
+              aussi le produit de vente. Sans prix de vente, le bilan présente
+              les flux d’exploitation et leur cumul. Le dossier de Lina cumule
+              <strong>−23&nbsp;771,60&nbsp;€</strong> d’exploitation sur dix
+              ans, hors revente et hors apport.
+            </p>
+            <p class="cat-exemple">
+              <strong>Le flux de la dixième année.</strong> La vente rapporte
+              90&nbsp;458,36&nbsp;€ et l’exploitation de l’année coûte
+              1&nbsp;677,80&nbsp;€. Avec les montants avant arrondi, le dernier
+              flux vaut <strong>88&nbsp;780,57&nbsp;€</strong>. C’est cette
+              somme qu’on actualise à dix ans.
+            </p>
+            <details>
+              <summary>
+                Voir les onze flux utilisés pour le calcul, de l’achat à la
+                vente
+              </summary>
+              <ul class="cat-flux">
+                <li>
+                  <span>Achat</span><strong>−28&nbsp;300,00&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 1</span><strong>−4&nbsp;656,30&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 2</span><strong>−2&nbsp;557,36&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 3</span><strong>−2&nbsp;452,12&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 4</span><strong>−2&nbsp;345,57&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 5</span><strong>−2&nbsp;237,68&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 6</span><strong>−2&nbsp;128,45&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 7</span><strong>−2&nbsp;017,86&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 8</span><strong>−1&nbsp;905,90&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 9</span><strong>−1&nbsp;792,55&nbsp;€</strong>
+                </li>
+                <li>
+                  <span>Année 10, vente comprise</span
+                  ><strong>+88&nbsp;780,57&nbsp;€</strong>
+                </li>
+              </ul>
+            </details>
+            <dl class="calcul-lignes">
+              <dt>Valeur actuelle nette (VAN)</dt>
+              <dd>
+                Au taux annuel choisi <var>r</var>, additionner chaque flux de
+                l’année <var>t</var> divisé par (1 + <var>r</var>)<sup>t</sup>.
+                Une VAN positive mesure le gain supplémentaire en euros
+                d’aujourd’hui par rapport au taux choisi.<span class="operation"
+                  >−28&nbsp;300 − 4&nbsp;656,30 / 1,05 − … + 88&nbsp;780,57 /
+                  1,05<sup>10</sup> = <strong>8&nbsp;180,35&nbsp;€</strong> au
+                  taux de 5&nbsp;%.</span
+                >
+              </dd>
+              <dt>Taux de rendement interne (TRI)</dt>
+              <dd>
+                C’est le taux annuel pour lequel la VAN de tous ces flux vaut
+                zéro. La solution pour Lina est <strong>7,03&nbsp;%</strong>,
+                arrondie. Le moteur calcule le TRI lorsque les flux changent de
+                signe une seule fois et qu’une racine peut être trouvée.
+              </dd>
+              <dt>Multiple des fonds investis (MOIC)</dt>
+              <dd>
+                Somme des flux positifs / somme des flux négatifs en valeur
+                absolue. L’apport initial et les années qui demandent de
+                l’épargne entrent dans le dénominateur.<span class="operation"
+                  >88&nbsp;780,57 / 50&nbsp;393,80 ≈
+                  <strong>1,76 fois</strong> les apports.</span
+                >
+              </dd>
+              <dt>Retour total (ROI)</dt>
+              <dd>
+                (Distributions − contributions) / contributions. Pour Lina,
+                (88&nbsp;780,57 − 50&nbsp;393,80) / 50&nbsp;393,80 =
+                <strong>76,17&nbsp;% sur dix ans</strong>. Le MOIC et le ROI
+                supposent un montant d’apports positif.
+              </dd>
+              <dt>TRI modifié</dt>
+              <dd>
+                On capitalise les flux positifs jusqu’à la fin et on actualise
+                les flux négatifs au jour de l’achat. Le site retient 4&nbsp;%
+                pour le réinvestissement et le financement. Sur
+                <var>n</var> années, le TRI modifié = (valeur finale des entrées
+                / valeur actuelle des sorties)<sup>1/n</sup> − 1.<span
+                  class="operation"
+                  >(88&nbsp;780,57 / 47&nbsp;033,38)<sup>1/10</sup> − 1 =
+                  <strong>6,56&nbsp;%</strong>.</span
+                >
+              </dd>
+            </dl>
+            <p>
+              Les hausses de loyer de 1,5&nbsp;%, de charges de 2&nbsp;% et
+              l’évolution de l’impôt à partir de l’année 2 ont été reconstituées
+              pour reproduire l’exemple du guide. À revenus, charges et impôt
+              constants, le même projet donne un TRI de 6,20&nbsp;% et une VAN
+              de 4&nbsp;783,74&nbsp;€.
+              <a href="index.html#exemple=lina"
+                >Ouvrir le bilan complet de Lina</a
+              >
+            </p>
+          </section>
+          <section id="scenarios" aria-labelledby="titre-scenarios">
+            <h2 id="titre-scenarios">Six projets chiffrés</h2>
+            <p>
+              Chaque bilan permet de modifier les hypothèses, de voir les
+              montants de chaque année et de télécharger le détail en PDF.
+            </p>
+            <div class="cat-cas">
+              <a href="index.html#exemple=lina"
+                ><strong>Lina, dix ans avec un crédit</strong
+                ><span
+                  >388,02&nbsp;€ d’effort mensuel en année 1. TRI de 7,03&nbsp;%
+                  après la revente.</span
+                ></a
+              >
+              <a href="index.html#exemple=location-nue"
+                ><strong>Location nue</strong
+                ><span
+                  >À 1&nbsp;000&nbsp;€ de loyer et 5&nbsp;% de vacance, l’impôt
+                  au réel atteint 2&nbsp;077,76&nbsp;€ en année 1.</span
+                ></a
+              >
+              <a href="index.html#exemple=location-meublee"
+                ><strong>Meublé de longue durée</strong
+                ><span
+                  >Après impôt, la trésorerie passe de −114,49&nbsp;€/mois au
+                  micro à +46,17&nbsp;€/mois au réel.</span
+                ></a
+              >
+              <a href="index.html#exemple=tourisme"
+                ><strong>Tourisme non classé</strong
+                ><span
+                  >À 85&nbsp;€ la nuit et 45&nbsp;% d’occupation, le flux après
+                  impôt est de 437,95&nbsp;€/mois.</span
+                ></a
+              >
+              <a href="index.html#exemple=sci-is"
+                ><strong>SCI à l’IS</strong
+                ><span
+                  >8&nbsp;185,32&nbsp;€ de trésorerie avant distribution. Pour
+                  2&nbsp;000&nbsp;€ distribués, l’associé reçoit
+                  1&nbsp;372&nbsp;€.</span
+                ></a
+              >
+              <a href="index.html#exemple=jeanbrun"
+                ><strong>Logement neuf sous Jeanbrun</strong
+                ><span
+                  >Dix mois loués, 5&nbsp;133,33&nbsp;€ de déduction et
+                  454,91&nbsp;€ de flux mensuel après impôt en année 1.</span
+                ></a
+              >
+            </div>
+          </section>
+          <section id="articles" aria-labelledby="titre-articles">
+            <h2 id="titre-articles">Les 23 calculateurs du blog</h2>
+            <p>
+              Chaque article s’ouvre sur GitHub avec son exemple historique, ses
+              chiffres et les formules de son calculateur. Pour comparer les
+              régimes d’un projet actuel, reportez-vous aux
+              <a href="#fiscalite">règles datées de la simulation</a>.
+            </p>
+            <div class="cat-articles">
+              <div>
+                <h3>Achat et financement</h3>
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/immobilier-neuf-vs-ancien-impact-rentabilite.md"
+                      >Comparer un achat neuf et un achat ancien</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/travaux-renovation-integrer-couts-au-calcul.md"
+                      >Intégrer les travaux au budget d’acquisition</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/apport-personnel-combien-mettre-projet-locatif.md"
+                      >Choisir le montant de son apport</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/mensualites-credit-immobilier-formule-annuite.md"
+                      >Calculer les mensualités et l’annuité du crédit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/assurance-de-pret-impact-rentabilite.md"
+                      >Mesurer le coût de l’assurance de prêt</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/credit-immobilier-quelle-duree-choisir.md"
+                      >Comparer les durées d’emprunt</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/taux-fixe-vs-taux-variable-impact-cashflow.md"
+                      >Comparer taux fixe et taux variable</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/effet-de-levier-du-credit-explication-simple.md"
+                      >Mesurer l’effet de levier du crédit</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Loyers et dépenses</h3>
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/comment-estimer-le-loyer-avant-achat.md"
+                      >Estimer le loyer avant l’achat</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/vacance-locative-comment-anticiper-calculs.md"
+                      >Chiffrer les mois de vacance</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/charges-courantes-a-ne-pas-oublier-rentabilite.md"
+                      >Additionner les charges courantes du propriétaire</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/gestion-locative-auto-gestion-ou-agence-impact-financier.md"
+                      >Comparer gestion directe et agence</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/taxe-fonciere-comment-la-prevoir-dans-ses-calculs.md"
+                      >Prévoir la taxe foncière</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Fiscalité et cession</h3>
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/comment-fonctionnent-les-tranches-dimposition-exemples-chiffres.md"
+                      >Appliquer les tranches d’imposition</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/deficit-foncier-optimiser-fiscalite-immobiliere.md"
+                      >Répartir un déficit foncier</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/lmnp-avantages-et-inconvenients-investisseur.md"
+                      >Comparer les régimes du meublé non professionnel</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/plus-value-immobiliere-calcul-optimisation.md"
+                      >Calculer la plus-value d’une vente</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/simulation-revente-integrer-plus-value-dans-tri.md"
+                      >Intégrer la revente dans le TRI</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Rendement et comparaison</h3>
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/comment-comparer-deux-biens-immobiliers-rentabilite-nette.md"
+                      >Comparer la rentabilité nette de deux biens</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/cashflow-positif-vs-negatif-que-choisir.md"
+                      >Lire une trésorerie positive ou négative</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/tri-taux-rendement-interne-explication-exemple.md"
+                      >Recalculer un TRI sur une série de flux</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/pourquoi-utiliser-un-simulateur-de-rentabilite-locative.md"
+                      >Faire une première simulation de rentabilité</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/comment-utiliser-notre-formulaire-etape-par-etape.md"
+                      >Retrouver le calcul du formulaire d’origine</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="cat-source">
+              <a
+                href="https://github.com/fmacfa/ma-rentabilite-ia/blob/main/articles/README.md"
+                >Parcourir les 99 articles du blog</a
+              >
+              ·
+              <a
+                href="https://github.com/fmacfa/ma-rentabilite-ia/tree/main/guide"
+                >Lire le guide pratique</a
+              >
+            </p>
+          </section>
+          <div class="cat-fin">
+            <a class="btn primary" href="index.html">Étudier mon projet</a
+            ><a href="#sommaire">Revenir au sommaire</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap foot">
+        <span>Ma Rentabilité · Immobilier locatif en France</span>
+        <nav aria-label="Ressources">
+          <a href="https://github.com/fmacfa/ma-rentabilite-ia/tree/main/guide"
+            >Guide pratique</a
+          ><a
+            href="https://github.com/fmacfa/ma-rentabilite-ia/tree/main/articles"
+            >99 articles</a
+          ><a href="https://github.com/fmacfa/ma-rentabilite-ia">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
